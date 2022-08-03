@@ -1,24 +1,31 @@
 <template>
+<Header></Header>
+<MainSection></MainSection>
+<AboutUsSection></AboutUsSection>
+ 
+  
 
-  <section class="header">
-    <div class="container">
-      <div class="wrap"></div>
-      <div class="logo-wrap">
-        <img class="logo" src="../public/images/logo.png" alt="my-logo" />
-      </div>
-    </div>
-  </section>
-  <section class="main">
-    <div class="container">
-      <h1>Welcome to
-        Business Analytics Online</h1>
-    </div>
-  </section>
 
+  <Footer></Footer>
 </template>
 
 <script>
+import Footer from "@/components/Footer.vue";
+import Header from "./components/Header.vue";
+import MainSection from "./components/MainSection.vue";
+import AboutUsSection from "./components/AboutUsSection.vue";
+
+
 export default {
+ 
+
+  components: {
+    Footer,
+    Header,
+    MainSection,
+    AboutUsSection
+},
+
   data() {
     return {
       
@@ -47,32 +54,8 @@ export default {
   padding-left: 20px;
   padding-right: 20px;
 }
-.header {
-  width: 100vw;
-}
-.wrap {
-  height: 53px;
-width: 100vw;
-  background-color: #000;
-}
-.logo-wrap {
-height: 149px;
-  width: 100vw;
-background-color: #00AFED;
-}
-.logo { 
-  height: 66px;
-  width: 103px;
 
-  margin-left: 377px;
-  padding: 15px;
 
-  color: #fff;
- 
-}
-.main {
-  height:  457px;
-  width: 100vw;
-background-image: url('../public/images/Фон-1x.jpg');
-}
+
+
 </style>
