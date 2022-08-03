@@ -1,45 +1,62 @@
 <template>
-    <!-- <svg class="logo" width="24px" height="16px">
-        <use href="../../public/images/logo.svg" />
-    </svg> -->
+
     <section class="header">
-        <!-- <div class="container"> -->
-        <div class="wrap"></div>
-        <div class="logo-wrap">
-            <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
+        <div class="header__top-wrapper"></div>
+        <div class="header__logo-wrapper" :style="{ backgroundImage: createBackgroundString}">
+            <my-container>
+                <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
+            </my-container>
         </div>
-        <!-- </div> -->
     </section>
 
 </template>
 
+<script>
+export default {
+
+    data() {
+        return {
+            angle: '180',
+            color1: '#00A9E7',
+            color2: '#005B9F'
+        }
+    },
+    computed: {
+        createBackgroundString() {
+            return `linear-gradient(${this.angle}deg, ${this.color1}, ${this.color2})`;
+        }
+    }
+}
+</script>
+
 <style scoped>
 
 
-.header {
-    width: 100vw;
-}
 
-.wrap {
+
+
+
+/* .header {
+    width: 100vw;
+} */
+
+.header__top-wrapper {
     height: 53px;
     width: 100vw;
+
     background-color: #000;
 }
 
-.logo-wrap {
-    height: 149px;
+.header__logo-wrapper {
     width: 100vw;
-    background-color: #00AFED;
+
+    padding: 15px 0;
 }
 
 .logo {
     height: 66px;
     width: 103px;
 
-    margin-left: 377px;
-    padding: 15px;
-
     color: #fff;
-
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <section class="footer">
 
-        <div class="container">
+        <my-container>
             <div class="footer-nav__wrapper">
                 <img class="footer-logo" src="../../public/images/logo.png" alt="my-logo" />
 
@@ -17,7 +17,7 @@
             <span class="footer-line"></span>
             <p class="copyright">Copyright © 2020 Citigroup Inc. Citibank,
                 N.A. Member FDIC. Equal Opportunity Lender.</p>
-        </div>
+        </my-container>
     </section>
 </template>
 
@@ -34,9 +34,7 @@
     width: 55.99px;
     height: 35px;
 
-
     color: #fff;
-
 }
 
 .footer-nav__wrapper {

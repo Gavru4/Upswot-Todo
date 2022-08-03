@@ -1,8 +1,8 @@
 <template>
     <section class="main">
-        <div class="container">
+        <my-container>
             <h1 class="heading">Welcome to <br /> Business Analytics Online</h1>
-        </div>
+        </my-container>
     </section>
 </template>
 

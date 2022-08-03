@@ -1,12 +1,10 @@
 <template>
+
 <Header></Header>
 <MainSection></MainSection>
 <AboutUsSection></AboutUsSection>
- 
-  
+<Footer></Footer>
 
-
-  <Footer></Footer>
 </template>
 
 <script>
@@ -14,6 +12,7 @@ import Footer from "@/components/Footer.vue";
 import Header from "./components/Header.vue";
 import MainSection from "./components/MainSection.vue";
 import AboutUsSection from "./components/AboutUsSection.vue";
+
 
 
 export default {
@@ -48,14 +47,4 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-.container {
-  width: 1200px;
-  margin:  0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-
-
-
 </style>

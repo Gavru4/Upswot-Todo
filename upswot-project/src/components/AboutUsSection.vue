@@ -1,6 +1,6 @@
 <template>
     <section class="about-us">
-        <div class="container">
+        <my-container>
             <div class="wrapper">
 
                 <p class="about-us__description">Business Analytics — a new, convenient tool for managing and
@@ -61,32 +61,28 @@
                     </li>
                 </ul>
 
-                <form class="auth-form" action="submit">
-                    <label class="auth-form__label" for="name">Name:</label>
-                    <input class="auth-form__input" id="name" type="text" name="name">
+                <div class="auth-form__wrapper">
+                    <form class="auth-form" action="submit">
+                        <label class="auth-form__label" for="name">Name:</label>
+                        <input class="auth-form__input" id="name" type="text" name="name">
 
-                    <label class="auth-form__label" for="password">Password:</label>
-                    <input class="auth-form__input" id="password" type="text" name="password">
+                        <label class="auth-form__label" for="password">Password:</label>
+                        <input class="auth-form__input" id="password" type="text" name="password">
 
-                    <button class="btn__login">LOGIN</button>
-                    <button class="btn__forgot-password">Forgot Password</button>
-                    <button class="btn__register">Register now</button>
-                </form>
+                        <button class="btn__login">LOGIN</button>
+                        <button class="btn__forgot-password">Forgot Password</button>
+                    </form>
+                        <button class="btn__register">Register now</button>
+                </div>
             </div>
-        </div>
+        </my-container>
     </section>
 </template>
-
+    <!-- <svg class="logo" width="24px" height="16px">
+        <use href="../../public/images/logo.svg" />
+    </svg> -->
 <style scoped>
 
-.container {
-    width: 1200px;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
-
-
-}
 
 
 .about-us__description {
@@ -145,20 +141,21 @@
 .wrapper {
     position: relative;
 }
-
-.auth-form {
-    width: 481px;
-    /* height: 464px; */
-    display: flex;
-    flex-direction: column;
+.auth-form__wrapper {
+    width: 480px;
     position: absolute;
     right: 0;
     bottom: 170px;
 
-    padding: 40px 30px 0 30px;
-    /* height: 464px; */
     background: #FFFFFF;
-    box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+}
+.auth-form {
+    display: flex;
+    flex-direction: column;
+   
+    padding: 40px 30px 25px;
+   
 }
 
 .auth-form__label {
@@ -174,9 +171,7 @@
 }
 
 .btn__login {
-    /* width: 421px; */
-    height: 53px;
-
+   padding: 12px 10px 12px;
     font-family: 'Roboto';
 
     font-size: 25px;
@@ -193,7 +188,7 @@
     font-size: 20px;
     line-height: 23px;
     border: none;
-    margin: 20px 0;
+    margin-top: 20px;
     background-color: #fff;
 
 
