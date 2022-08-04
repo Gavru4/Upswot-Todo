@@ -5,14 +5,19 @@
             <div class="todo-wrapper">
                 <h2 class="todo-header">Thank you ${name}!</h2>
                 <TodoForm></TodoForm>
-
-                <!-- <form class="todo-form" action="submit">
-                    <input class="todo-form__input" type="text" placeholder="Enter your todo">
-                    <button class="btn__add-todo">Add Todo</button>
-                </form> -->
                 <TodoFilter></TodoFilter>
-                 </div>
-                    <my-barrier class="barrier__my-style"></my-barrier>
+
+
+                <!-- <p>{{ $store.state.todo.todoList }}</p> -->
+                <ul v-for="(todo, index) in todos">
+                    <li :key="todo.id">
+                    {{todo.title}}
+                    </li>
+
+                </ul>
+
+            </div>
+            <my-barrier class="barrier__my-style"></my-barrier>
         </my-container>
     </div>
     <div class="bottom-wrapper">
