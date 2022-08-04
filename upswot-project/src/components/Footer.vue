@@ -14,7 +14,7 @@
                     <a class="footer-nav__link" href="">Sitemap</a>
                 </nav>
             </div>
-            <span class="footer-line"></span>
+           <my-barrier class="barrier-color"></my-barrier>
             <p class="copyright">Copyright © 2020 Citigroup Inc. Citibank,
                 N.A. Member FDIC. Equal Opportunity Lender.</p>
         </my-container>
@@ -24,6 +24,9 @@
 
 
 <style scoped>
+
+
+
 
 .footer {
     padding: 30px 0 35px 0;
@@ -63,16 +66,12 @@
     margin-right: 0;
 }
 
-.footer-line {
+.barrier__my-style {
     width: 100%;
-    display: inline-block;
-    height: 0px;
     margin-bottom: 30px;
-
-
+    
     border: 1px solid #FFFFFF;
 }
-
 .copyright {
     font-family: 'Roboto';
 
