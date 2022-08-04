@@ -1,16 +1,34 @@
 <template>
-   
-    <input class="todo-filter__input" type="text" placeholder="Filter your todo">
+    <!-- :model-value="searchQuery" -->
+    <!-- @oninput="filter()" -->
+    <input v-model="inputValue" @input="filter" class=" todo-filter__input" type="text" placeholder="Filter your todo">
 </template>
-<!-- 
+
 <script>
+import { mapActions, mapMutations,mapState } from "vuex";
 export default {
-    name:"my-filter"
+
+    data() {
+        return {
+        inputValue: ""
+        }
+    },
+    methods: {
+        // ...mapState({
+        //     searchQuery: state => state.post.searchQuery,
+        // }),
+        ...mapMutations({
+            filteredValue: "todo/filteredValue"
+        }),
+        filter() {
+            this.filteredValue(this.inputValue)
+        }
+    }
+    
 }
-</script> -->
+</script>
 
 <style>
-
 
 .todo-filter__input {
     display: block;

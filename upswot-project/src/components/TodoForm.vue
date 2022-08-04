@@ -16,7 +16,9 @@ export default {
     },
     methods: {
         // ...mapActions(["addNewTodo"]),
-        ...mapMutations(["addTodo"]),
+        ...mapMutations({
+            addTodo: "todo/addTodo"
+        }),
         addNewTodo() {
             if (this.title === "") {
                 alert("Pleas fill the field")
