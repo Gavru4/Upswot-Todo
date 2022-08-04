@@ -1,10 +1,8 @@
 <template>
-
-    <Header></Header>
-    <MainSection></MainSection>
-    <AboutUsSection></AboutUsSection>
-    <Footer></Footer>
-
+    <Header/>
+    <MainSection/>
+    <AboutUsSection/>
+    <Footer/>
 </template>
 
 <script>

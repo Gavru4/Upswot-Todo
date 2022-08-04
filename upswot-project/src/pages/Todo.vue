@@ -4,30 +4,21 @@
             <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
             <div class="todo-wrapper">
                 <h2 class="todo-header">Thank you ${name}!</h2>
-                <TodoForm></TodoForm>
-                <TodoFilter></TodoFilter>
-
-
-                <!-- <p>{{ $store.state.todo.todoList }}</p> -->
-                <ul v-for="(todo, index) in todos">
-                    <li :key="todo.id">
-                    {{todo.title}}
-                    </li>
-
-                </ul>
+                <TodoForm />
+                <TodoFilter />
+                <TodoList/>
 
             </div>
             <my-barrier class="barrier__my-style"></my-barrier>
         </my-container>
     </div>
-    <div class="bottom-wrapper">
-
-    </div>
+    <div class="bottom-wrapper"></div>
 </template>
 
 <script>
-import TodoForm from "../components/TodoForm.vue";
+import TodoForm from "@/components/TodoForm.vue";
 import TodoFilter from "@/components/TodoFilter.vue";
+import TodoList from "@/components/TodoList.vue";
 export default {
     data() {
         return {
@@ -41,11 +32,12 @@ export default {
             return `linear-gradient(${this.angle}deg, ${this.color1}, ${this.color2})`;
         }
     },
-    components: { TodoForm, TodoFilter }
+    components: { TodoForm, TodoFilter, TodoList }
 }
 </script>
 
 <style scoped>
+
 
 
 
@@ -103,4 +95,5 @@ position: absolute;
 top: 440px;
 border: 1px solid #000000;
 }
+
 </style>

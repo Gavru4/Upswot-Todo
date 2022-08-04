@@ -15,7 +15,7 @@ export default {
 .todo-filter__input {
     display: block;
     width: 600px;
-    height: 40px;
+    height: 60px;
     padding: 20px;
     margin: 0 auto;
     
