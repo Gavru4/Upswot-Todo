@@ -4,7 +4,10 @@
         <div class="header__top-wrapper"></div>
         <div class="header__logo-wrapper" :style="{ backgroundImage: createBackgroundString}">
             <my-container>
-                <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
+                <!-- @click="$router.push('/todo')" -->
+                <router-link to="{{name: main}}">
+                    <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
+                </router-link>
             </my-container>
         </div>
     </section>

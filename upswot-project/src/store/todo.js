@@ -1,41 +1,8 @@
 export const todo = {
   state: () => ({
-    // todoList: [
-    //   {
-    //     id: 1,
-    //     title: "Do the dishes",
-    //     completed: false,
-    //   },
-    //   {
-    //     id: 2,
-    //     title: "Take out the trash",
-    //     completed: false,
-    //   },
-    //   {
-    //     id: 3,
-    //     title: "Mow the lawn",
-    //     completed: false,
-    //   },
-    //   {
-    //     id: 4,
-    //     title: "Do the dishes",
-    //     completed: false,
-    //   },
-    //   {
-    //     id: 5,
-    //     title: "Take out the trash",
-    //     completed: false,
-    //   },
-    //   {
-    //     id: 6,
-    //     title: "Mow the lawn",
-    //     completed: false,
-    //   },
-    // ],
     searchQuery: "",
     showModal: false,
     updatedTodo: null,
-    // todoList: [],
     todoList: JSON.parse(localStorage.getItem("todo")) || [],
   }),
   getters: {
@@ -45,11 +12,6 @@ export const todo = {
     isModalOpen(state) {
       return state.showModal;
     },
-    // checkTodoInLS(state) {
-    //   const getTodo = JSON.parse(localStorage.getItem("todo"));
-    //   console.log("getTodo :>> ", getTodo);
-    //   if (getTodo) state.todoList = getTodo;
-    // },
     todoList(state) {
       if (state.searchQuery === "") {
         return state.todoList;
@@ -81,18 +43,11 @@ export const todo = {
     toggleModal(state) {
       state.showModal = !state.showModal;
       state.updatedTodo = null;
-      //   return (state.showModal = value);
     },
     findForUpdate(state, todoData) {
       state.showModal = !state.showModal;
       state.updatedTodo = todoData;
     },
-  },
-
-  actions: {
-    // addNewTodo(ctx, newTodo) {
-    //   ctx.commit("addTodo", newTodo);
-    // },
   },
   namespaced: true,
 };

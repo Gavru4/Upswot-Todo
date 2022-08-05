@@ -4,7 +4,6 @@ import { todo } from "@/store/todo";
 export default createStore({
   state: {
     isAuth: JSON.parse(localStorage.getItem("isUserLogin")) || false,
-    // showModal: false,
   },
   getters: {
     userLoginInfo(state) {
@@ -22,8 +21,6 @@ export default createStore({
       } else {
         return state.isAuth;
       }
-
-      //   return (state.showModal = value);
     },
   },
   modules: {

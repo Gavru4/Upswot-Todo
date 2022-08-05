@@ -27,7 +27,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            isAuth: "isAuth"
+            userLoginInfo: "userLoginInfo"
         })
        
     },
@@ -36,10 +36,12 @@ export default {
          loginUser: "loginUser"
      }),
 
-    onUserLogin() {
-        this.loginUser({ login: this.name, password: this.password })
+  async  onUserLogin() {
+       await this.loginUser({ login: this.name, password: this.password })
         this.name = "",
-        this.password= ""
+        this.password = ""
+       
+        this.userLoginInfo ? this.$router.push('/todo') : this.$router.push('/login')
     }
     }
 
