@@ -3,19 +3,25 @@
         <input class="todo-form__input" type="text" placeholder="Enter your todo" v-model="title">
         <button class="btn__add-todo">Add Todo</button>
     </form>
+    <!-- <p>{{ valueForUpdate?.title }}</p> -->
 </template>
 <script>
 
-import { mapActions,mapMutations } from "vuex";
-export default {
+import { mapMutations, mapGetters } from "vuex";
 
+
+export default {
+   
     data() {
         return {
-            title:"",
+            title: ""
+            // title: valueForUpdate ? valueForUpdate.title : "",
         }
     },
+    computed: mapGetters({
+        valueForUpdate: "todo/valueForUpdate"
+    }),
     methods: {
-        // ...mapActions(["addNewTodo"]),
         ...mapMutations({
             addTodo: "todo/addTodo"
         }),

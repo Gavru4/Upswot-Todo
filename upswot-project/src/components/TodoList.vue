@@ -8,106 +8,115 @@
                 {{ todo.title }}
             </div>
             <div>
-                <button class="update__btn">Update todo</button>
+                <button @click="updateTodo({id:todo.id, title: todo.title})" class=" update__btn">Update todo</button>
                 <button @click="removeTodo(todo.id)" class="del__btn">Delete todo</button>
             </div>
+
         </li>
     </ul>
+
+    <my-modal>
+        <TodoForm />
+    </my-modal>
+
 </template>
 
-<script>
-
+        <script>
 import { mapGetters, mapActions, mapMutations } from "vuex";
+import TodoForm from "./TodoForm.vue";
 
 export default {
     computed: mapGetters({
         todoList: "todo/todoList",
-        filteredTodo: "todo/filteredTodo"
+        filteredTodo: "todo/filteredTodo",
+        isModalOpen: "todo/isModalOpen"
     }),
     methods: {
         ...mapMutations({
-            deleteTodoById: "todo/deleteTodoById"
+            deleteTodoById: "todo/deleteTodoById",
+            findForUpdate: "todo/findForUpdate"
         }),
         removeTodo(id) {
-            this.deleteTodoById(id)
-        }
-    }
+            this.deleteTodoById(id);
+        },
+        updateTodo(todoData) {
+            this.findForUpdate(todoData);
+        },
+    },
+    components: { TodoForm }
 }
-</script>
+        </script>
 
-<style>
+        <style>
+            .todo-list {
+                margin-top: 50px;
+                list-style: none;
+            }
 
+            .item-heading {
+                margin-top: 80px;
+                font-family: 'Roboto';
+                font-size: 30px;
+                line-height: 29px;
+                text-align: center;
 
+                color: #333333;
+            }
 
-.todo-list {
-    margin-top: 50px;
-    list-style: none;
-}
+            .todo-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
 
-.item-heading {
-    margin-top: 80px;
-    font-family: 'Roboto';
-    font-size: 30px;
-    line-height: 29px;
-    text-align: center;
+                font-family: 'Roboto';
+                font-size: 25px;
+                line-height: 29px;
+                color: #333333;
 
-    color: #333333;
-}
+                padding: 15px 19px;
+                margin-bottom: 20px;
 
-.todo-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+                border: 1px solid #ccc;
 
-    font-family: 'Roboto';
-    font-size: 25px;
-    line-height: 29px;
-    color: #333333;
+            }
 
-    padding: 15px 19px;
-    margin-bottom: 20px;
+            .update__btn {
+                padding: 10px;
+                border-radius: 10px;
 
-    border: 1px solid #ccc;
+                font-family: 'Roboto';
+                font-size: 20px;
+                line-height: 20px;
 
-}
+                border: none;
+                background: #00A9E7;
+                ;
+                color: #fff;
 
-.update__btn {
-    padding: 10px;
-    border-radius: 10px;
+            }
 
-    font-family: 'Roboto';
-    font-size: 20px;
-    line-height: 20px;
+            .del__btn {
+                padding: 10px;
+                margin-left: 20px;
+                border-radius: 10px;
 
-    border: none;
-    background: #00A9E7;
-    ;
-    color: #fff;
+                font-family: 'Roboto';
+                font-size: 20px;
+                line-height: 20px;
 
-}
+                border: none;
+                background: red;
+                color: #fff;
 
-.del__btn {
-    padding: 10px;
-    margin-left: 20px;
-    border-radius: 10px;
+            }
 
-    font-family: 'Roboto';
-    font-size: 20px;
-    line-height: 20px;
+            .todo-checkbox {
+                width: 20px;
+                height: 20px;
+                margin-right: 15px;
+            }
 
-    border: none;
-    background: red;
-    color: #fff;
-
-}
-
-.todo-checkbox {
-    width: 20px;
-    height: 20px;
-    margin-right: 15px;
-}
-
-.done {
-    text-decoration: line-through;
-}
-</style>
+            .done {
+                text-decoration: line-through;
+            }
+        </style>
