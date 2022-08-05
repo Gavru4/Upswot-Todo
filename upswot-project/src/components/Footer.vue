@@ -14,7 +14,7 @@
                     <a class="footer-nav__link" href="">Sitemap</a>
                 </nav>
             </div>
-           <my-barrier class="barrier-color"></my-barrier>
+            <my-barrier class="barrier__my-style"></my-barrier>
             <p class="copyright">Copyright © 2020 Citigroup Inc. Citibank,
                 N.A. Member FDIC. Equal Opportunity Lender.</p>
         </my-container>
@@ -24,6 +24,7 @@
 
 
 <style scoped>
+
 
 
 
