@@ -36,9 +36,7 @@ export const todo = {
     showModal: false,
     updatedTodo: null,
     // todoList: [],
-    todoList: JSON.parse(localStorage.getItem("todo"))
-      ? JSON.parse(localStorage.getItem("todo"))
-      : [],
+    todoList: JSON.parse(localStorage.getItem("todo")) || [],
   }),
   getters: {
     valueForUpdate(state) {
@@ -69,13 +67,13 @@ export const todo = {
   },
   mutations: {
     addTodo(state, newTodo) {
-      localStorage.setItem("todo", JSON.stringify([newTodo]));
-      const addNewTodo = state.todoList.push(newTodo);
+      state.todoList.push(newTodo);
 
-      return addNewTodo;
+      localStorage.setItem("todo", JSON.stringify(state.todoList));
     },
     deleteTodoById(state, id) {
-      return (state.todoList = state.todoList.filter((el) => el.id !== id));
+      state.todoList = state.todoList.filter((el) => el.id !== id);
+      localStorage.setItem("todo", JSON.stringify(state.todoList));
     },
     filteredValue(state, value) {
       state.searchQuery = value;
