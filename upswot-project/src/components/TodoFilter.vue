@@ -35,7 +35,7 @@ export default {
     width: 600px;
     height: 60px;
     padding: 20px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     
     font-family: 'Roboto';
     font-size: 25px;

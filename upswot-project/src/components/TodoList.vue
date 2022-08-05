@@ -6,7 +6,6 @@
   <!-- <h2 v-else-if="filteredTodo.length===0" class="item-heading">Todo list is empty 😔</h2> -->
   <ul v-else class="todo-list">
     <li class="todo-item" v-for="todo in todoList" :key="todo.id">
-      {{todo.completed}}
       <div v-bind:class="{ done: todo.completed }">
         <input class="todo-checkbox" type="checkbox" v-bind:checked="todo.completed"
           v-on:change="toggleCheckBox(todo.id)" />

@@ -1,24 +1,41 @@
 <template>
-    <div class="wrapper" :style=" { backgroundImage: createBackgroundString}">
-        <my-container class="todo-position">
-            <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
-            <div class="todo-wrapper">
-                <h2 class="todo-header">Thank you ${name}!</h2>
-                <TodoForm />
-                <TodoFilter />
-                <TodoList/>
+    <div v-if="userLoginInfo">
+        <div class="wrapper" :style="{ backgroundImage: createBackgroundString }">
+            <my-container class="todo-position">
+                <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
+                <div class="todo-wrapper">
+                    <h2 class="todo-header">Thank you ${name}!</h2>
+                    <TodoForm />
+                    <div class="additional-features">
+                        <TodoFilter />
+                        <SortedTodo class="sorted__todo" />
 
-            </div>
-            <my-barrier class="barrier__my-style"></my-barrier>
-        </my-container>
+                    </div>
+
+                    <TodoList />
+
+                </div>
+                <my-barrier class="barrier__my-style"></my-barrier>
+            </my-container>
+        </div>
+
+        <div class="bottom-wrapper"></div>
     </div>
-    <div class="bottom-wrapper"></div>
+    <div v-else>
+        <p class="redirect__text">You are not registered, at first register pleas</p>
+        <router-link to="/login" class="redirect__btn">
+            To Register page
+        </router-link>
+    </div>
+
 </template>
 
 <script>
 import TodoForm from "@/components/TodoForm.vue";
 import TodoFilter from "@/components/TodoFilter.vue";
 import TodoList from "@/components/TodoList.vue";
+import { mapGetters } from "vuex";
+import SortedTodo from "../components/SortedTodo.vue";
 export default {
     data() {
         return {
@@ -28,19 +45,18 @@ export default {
         };
     },
     computed: {
+        ...mapGetters({
+            userLoginInfo: "userLoginInfo"
+        }),
         createBackgroundString() {
             return `linear-gradient(${this.angle}deg, ${this.color1}, ${this.color2})`;
         }
     },
-    components: { TodoForm, TodoFilter, TodoList }
+    components: { TodoForm, TodoFilter, TodoList, SortedTodo }
 }
 </script>
 
 <style scoped>
-
-
-
-
 
 
 
@@ -88,12 +104,45 @@ export default {
 
     color: #333333;
 }
-
+.additional-features {
+    display: flex;
+    justify-content: space-around;
+}
+.sorted__todo{
+    width: 200px;
+    height: 60px;
+    padding: 20px;
+    
+    font-family: 'Roboto';
+    font-size: 22px;
+    line-height: 20px;
+    
+    border-radius: 5px;
+        
+    /* background-color: #00A9E7; */
+}
 .barrier__my-style {
 width: 1160px;
 position: absolute;
 top: 440px;
 border: 1px solid #000000;
+}
+
+.redirect__btn {
+    display: flex;
+    font-family: 'Roboto';
+    font-weight: 700;
+    Font-size: 40px;
+    line-height: 94px;     
+    justify-content: center;
+    text-decoration: none;
+}
+.redirect__text {
+    font-family: 'Roboto';
+    font-weight: 700;
+    Font-size: 40px;
+    line-height: 94px;
+    text-align: center;
 }
 
 </style>
