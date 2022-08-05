@@ -2,12 +2,15 @@ export const todo = {
   state: () => ({
     searchQuery: "",
     showModal: false,
-    updatedTodo: null,
+    updatedTodo: "",
     todoList: JSON.parse(localStorage.getItem("todo")) || [],
   }),
   getters: {
     valueForUpdate(state) {
       return state.updatedTodo;
+    },
+    todoCompleted(state) {
+      return state.todoList;
     },
     isModalOpen(state) {
       return state.showModal;
@@ -44,9 +47,18 @@ export const todo = {
       state.showModal = !state.showModal;
       state.updatedTodo = null;
     },
-    findForUpdate(state, todoData) {
+    toggleTodo(state, id) {
+      state.todoList.map((el) => {
+        if (el.id === id) {
+          el.completed = !el.completed;
+        }
+      });
+      localStorage.setItem("todo", JSON.stringify(state.todoList));
+    },
+    findForUpdate(state, { title, id }) {
       state.showModal = !state.showModal;
-      state.updatedTodo = todoData;
+      // state.updatedTodo = todoData;
+      state.updatedTodo = title;
     },
   },
   namespaced: true,

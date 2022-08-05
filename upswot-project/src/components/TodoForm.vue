@@ -7,15 +7,16 @@
 </template>
 <script>
 
+
 import { mapMutations, mapGetters } from "vuex";
 
-
 export default {
-   
+ 
     data() {
         return {
-            title: ""
-            // title: valueForUpdate ? valueForUpdate.title : "",
+            // title: ""
+            title:   "",
+            test: this.valueForUpdate ? this.valueForUpdate: "",
         }
     },
     computed: mapGetters({
@@ -35,6 +36,7 @@ export default {
                     completed: false,
                 })
                 this.title = ""
+                console.log('this.valueForUpdate :>> ', this.valueForUpdate);
             }
            
         }

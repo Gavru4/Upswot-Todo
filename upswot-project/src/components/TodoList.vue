@@ -1,27 +1,30 @@
 <template>
-    <h2 v-if="todoList.length === 0" class="item-heading">
-        Todo list is empty 😔
-    </h2>
-    <!-- <h2 v-else-if="filteredTodo.length===0" class="item-heading">Todo list is empty 😔</h2> -->
-    <ul v-else class="todo-list">
-        <li class="todo-item" v-for="todo in todoList" :key="todo.id">
-            <div v-bind:class="{ done: todo.completed }">
-                <input class="todo-checkbox" type="checkbox" v-on:change="todo.completed = !todo.completed" />
-                {{ todo.title }}
-            </div>
-            <div >
-                <button @click="updateTodo({ id: todo.id, title: todo.title })" class="update__btn">
-                    Update todo
-                </button>
-                <button @click="removeTodo(todo.id)" class="del__btn">
-                    Delete todo
-                </button>
-            </div>
-        </li>
-    </ul>
-    <my-modal>
-        <TodoForm />
-    </my-modal>
+  <h2 v-if="todoList.length === 0" class="item-heading">
+    Todo list is empty 😔
+  </h2>
+  <!-- v-on:change="todo.completed = !todo.completed" -->
+  <!-- <h2 v-else-if="filteredTodo.length===0" class="item-heading">Todo list is empty 😔</h2> -->
+  <ul v-else class="todo-list">
+    <li class="todo-item" v-for="todo in todoList" :key="todo.id">
+      {{todo.completed}}
+      <div v-bind:class="{ done: todo.completed }">
+        <input class="todo-checkbox" type="checkbox" v-bind:checked="todo.completed"
+          v-on:change="toggleCheckBox(todo.id)" />
+        {{ todo.title }}
+      </div>
+      <div>
+        <button @click="updateTodo({ id: todo.id, title: todo.title })" class="update__btn">
+          Update todo
+        </button>
+        <button @click="removeTodo(todo.id)" class="del__btn">
+          Delete todo
+        </button>
+      </div>
+    </li>
+  </ul>
+  <my-modal>
+    <TodoForm />
+  </my-modal>
 </template>
 
 <script>
@@ -38,9 +41,15 @@ export default {
     ...mapMutations({
       deleteTodoById: "todo/deleteTodoById",
       findForUpdate: "todo/findForUpdate",
+      toggleTodo: "todo/toggleTodo"
     }),
     removeTodo(id) {
       this.deleteTodoById(id);
+    },
+    toggleCheckBox(id) {
+      console.log('id :>> ', id);
+      // todo.completed = !todo.completed
+      this.toggleTodo(id);
     },
     updateTodo(todoData) {
       this.findForUpdate(todoData);

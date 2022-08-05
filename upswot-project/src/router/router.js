@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { defineAsyncComponent } from "vue";
+// import { defineAsyncComponent } from "vue";
 import Login from "@/pages/Login.vue";
 import Todo from "@/pages/Todo.vue";
 import NotFound from "@/pages/NotFound.vue";
