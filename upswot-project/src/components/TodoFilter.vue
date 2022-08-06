@@ -1,6 +1,4 @@
 <template>
-    <!-- :model-value="searchQuery" -->
-    <!-- @oninput="filter()" -->
     <input v-model="inputValue" @input="filter" class=" todo-filter__input" type="text" placeholder="Filter your todo">
 </template>
 
@@ -16,9 +14,6 @@ export default {
     
 
     methods: {
-        // ...mapState({
-        //     searchQuery: state => state.post.searchQuery,
-        // }),
         ...mapMutations({
             filterAndSortedTodo: "todo/filterAndSortedTodo"
         }),

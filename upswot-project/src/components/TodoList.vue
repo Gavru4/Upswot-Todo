@@ -2,8 +2,6 @@
   <h2 v-if="todoList?.length === 0" class="item-heading">
     Todo list is empty 😔
   </h2>
-  <!-- v-on:change="todo.completed = !todo.completed" -->
-  <!-- <h2 v-else-if="filteredTodo.length===0" class="item-heading">Todo list is empty 😔</h2> -->
   <ul v-else class="todo-list">
     <li class="todo-item" v-for="todo in todoList" :key="todo.id">
       <div v-bind:class="{ done: todo.completed }">
@@ -22,13 +20,14 @@
     </li>
   </ul>
   <my-modal>
-    <TodoForm />
+    <UpdateTodoForm />
   </my-modal>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import TodoForm from "@/components/TodoForm.vue";
+import UpdateTodoForm from "./UpdateTodoForm.vue";
 
 export default {
   computed: mapGetters({
@@ -39,7 +38,7 @@ export default {
   methods: {
     ...mapMutations({
       deleteTodoById: "todo/deleteTodoById",
-      findForUpdate: "todo/findForUpdate",
+      findTodoForUpdate: "todo/findTodoForUpdate",
       toggleConditionTodo: "todo/toggleConditionTodo"
     }),
     removeTodo(id) {
@@ -49,10 +48,10 @@ export default {
       this.toggleConditionTodo(id);
     },
     updateTodo(todoData) {
-      this.findForUpdate(todoData);
+      this.findTodoForUpdate(todoData);
     },
   },
-  components: { TodoForm },
+  components: { TodoForm, UpdateTodoForm },
 };
 </script>
 

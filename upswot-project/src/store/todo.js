@@ -4,13 +4,13 @@ export const todo = {
   state: () => ({
     searchQuery: JSON.parse(localStorage.getItem("searchQuery")) || "all",
     showModal: false,
-    updatedTodo: "",
+    updatedTodo: null,
     todoList: JSON.parse(localStorage.getItem("todo")) || [],
   }),
   getters: {
-    valueForUpdate(state) {
-      return state.updatedTodo;
-    },
+    // valueForUpdate(state) {
+    //   return state.updatedTodo;
+    // },
     todoCompleted(state) {
       return state.todoList;
     },
@@ -63,10 +63,20 @@ export const todo = {
       localStorage.setItem("todo", JSON.stringify(state.todoList));
     },
 
-    findForUpdate(state, { title, id }) {
+    findTodoForUpdate(state, todoData) {
       state.showModal = !state.showModal;
-      // state.updatedTodo = todoData;
-      state.updatedTodo = title;
+      state.updatedTodo = todoData;
+      // state.updatedTodo = title;
+    },
+    updateTodo(state, { title, id }) {
+      state.showModal = !state.showModal;
+
+      state.todoList.find((el) => {
+        if (el.id === id) {
+          el.title = title;
+        }
+      });
+      // state.updatedTodo = title;
     },
   },
   namespaced: true,

@@ -1,54 +1,44 @@
 <template>
+
     <form class="todo-form" @submit.prevent="addNewTodo">
-        <input class="todo-form__input" type="text" placeholder="Enter your todo" v-model="title">
+        <input v-model="searchField" class="todo-form__input" type="text" placeholder="Enter your todo">
         <button class="btn__add-todo">Add Todo</button>
+
     </form>
-    <!-- <p>{{ valueForUpdate?.title }}</p> -->
+
 </template>
+
 <script>
-
-
-import { mapMutations, mapGetters } from "vuex";
+import { mapMutations, mapState } from "vuex";
 
 export default {
  
-    data() {
-        return {
-            // title: ""
-            title:   "",
-            test: this.valueForUpdate ? this.valueForUpdate: "",
-        }
-    },
-    computed: mapGetters({
-        valueForUpdate: "todo/valueForUpdate"
+data: () => ({
+        searchField:'',
     }),
+    computed: {
+    ...mapState({
+        updatedTodo: state => state.todo.updatedTodo,
+    })
+    },
     methods: {
         ...mapMutations({
             addTodo: "todo/addTodo"
         }),
-        addNewTodo() {
-            if (this.title === "") {
+        addNewTodo() { 
+            if (this.searchField === "") {
                 alert("Pleas fill the field")
             } else {
                 this.addTodo({
-                    title: this.title,
+                    title: this.searchField,
                     id: Date.now(),
                     completed: false,
                 })
-                this.title = ""
-                console.log('this.valueForUpdate :>> ', this.valueForUpdate);
+                this.searchField = ""
             }
            
         }
     },
-
-    async mounted() {
-        // this.addNewTodo({
-        //     id: 7,
-        //     title: "tttttt",
-        //     completed: true,
-        // })
-    }
 }
 </script>
 

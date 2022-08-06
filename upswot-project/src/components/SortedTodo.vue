@@ -23,7 +23,6 @@ export default {
             filterAndSortedTodo: "todo/filterAndSortedTodo"
         }),
         selectTodo(e) {
-          
             this.filterAndSortedTodo(e.target.value)
         }
     },
