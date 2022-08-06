@@ -18,10 +18,10 @@ export default {
         //     searchQuery: state => state.post.searchQuery,
         // }),
         ...mapMutations({
-            filteredValue: "todo/filteredValue"
+            filterTodo: "todo/filterTodo"
         }),
         filter() {
-            this.filteredValue(this.inputValue)
+            this.filterTodo(this.inputValue)
         }
     }
     

@@ -34,8 +34,9 @@
 import TodoForm from "@/components/TodoForm.vue";
 import TodoFilter from "@/components/TodoFilter.vue";
 import TodoList from "@/components/TodoList.vue";
-import { mapGetters } from "vuex";
 import SortedTodo from "../components/SortedTodo.vue";
+
+import { mapGetters } from "vuex";
 export default {
     data() {
         return {
@@ -111,7 +112,7 @@ export default {
 .sorted__todo{
     width: 200px;
     height: 60px;
-    padding: 20px;
+    padding: 15px;
     
     font-family: 'Roboto';
     font-size: 22px;
@@ -119,7 +120,7 @@ export default {
     
     border-radius: 5px;
         
-    /* background-color: #00A9E7; */
+    background-color: #00A9E7;
 }
 .barrier__my-style {
 width: 1160px;

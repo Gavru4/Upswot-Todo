@@ -1,5 +1,5 @@
 <template>
-  <h2 v-if="todoList.length === 0" class="item-heading">
+  <h2 v-if="todoList?.length === 0" class="item-heading">
     Todo list is empty 😔
   </h2>
   <!-- v-on:change="todo.completed = !todo.completed" -->
@@ -40,15 +40,13 @@ export default {
     ...mapMutations({
       deleteTodoById: "todo/deleteTodoById",
       findForUpdate: "todo/findForUpdate",
-      toggleTodo: "todo/toggleTodo"
+      toggleConditionTodo: "todo/toggleConditionTodo"
     }),
     removeTodo(id) {
       this.deleteTodoById(id);
     },
     toggleCheckBox(id) {
-      console.log('id :>> ', id);
-      // todo.completed = !todo.completed
-      this.toggleTodo(id);
+      this.toggleConditionTodo(id);
     },
     updateTodo(todoData) {
       this.findForUpdate(todoData);
