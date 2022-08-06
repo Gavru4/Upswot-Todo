@@ -2,10 +2,9 @@ import { initCustomFormatter } from "vue";
 
 export const todo = {
   state: () => ({
-    searchQuery: "",
+    searchQuery: JSON.parse(localStorage.getItem("searchQuery")) || "all",
     showModal: false,
     updatedTodo: "",
-    selectValue: "",
     todoList: JSON.parse(localStorage.getItem("todo")) || [],
   }),
   getters: {
@@ -40,8 +39,9 @@ export const todo = {
       localStorage.setItem("todo", JSON.stringify(state.todoList));
     },
 
-    filterTodo(state, value) {
+    filterAndSortedTodo(state, value) {
       state.searchQuery = value;
+      localStorage.setItem("searchQuery", JSON.stringify(state.searchQuery));
     },
 
     deleteTodoById(state, id) {
@@ -61,16 +61,6 @@ export const todo = {
         }
       });
       localStorage.setItem("todo", JSON.stringify(state.todoList));
-    },
-    selectedByCondition(state, valueFromSelect) {
-      state.searchQuery = valueFromSelect;
-      // if (selectValue === "all") {
-      //   return state.todoList;
-      // } else if (selectValue === "completed") {
-      //   state.todoList.filter((el) => el.completed);
-      // } else if (selectValue === "incomplete") {
-      //   state.todoList.filter((el) => !el.completed);
-      // }
     },
 
     findForUpdate(state, { title, id }) {

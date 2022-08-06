@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations,mapState } from "vuex";
+import { mapMutations,mapState } from "vuex";
 export default {
 
     data() {
@@ -13,15 +13,17 @@ export default {
         inputValue: ""
         }
     },
+    
+
     methods: {
         // ...mapState({
         //     searchQuery: state => state.post.searchQuery,
         // }),
         ...mapMutations({
-            filterTodo: "todo/filterTodo"
+            filterAndSortedTodo: "todo/filterAndSortedTodo"
         }),
         filter() {
-            this.filterTodo(this.inputValue)
+            this.filterAndSortedTodo(this.inputValue)
         }
     }
     

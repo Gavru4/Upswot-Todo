@@ -1,5 +1,6 @@
 <template>
-    <select v-model="selectValue" @change="selectTodo">
+
+    <select v-model="searchQuery" @change="selectTodo">
         <option value="all">All</option>
         <option value="completed">Completed</option>
         <option value="incomplete">Incomplete</option>
@@ -9,24 +10,24 @@
 
 <script>
 
-import { mapMutations } from "vuex";
+import { mapMutations, mapState } from "vuex";
 
 export default {
-    data() {
-        return {
-         selectValue: "all"
-        }
+    computed: {
+         ...mapState({
+             searchQuery: state => state.todo.searchQuery,
+         }),
     },
-
     methods: {
         ...mapMutations({
-            // selectedByCondition: "todo/selectedByCondition"
-            filterTodo: "todo/filterTodo"
+            filterAndSortedTodo: "todo/filterAndSortedTodo"
         }),
-        selectTodo() {
-            this.filterTodo(this.selectValue)
+        selectTodo(e) {
+          
+            this.filterAndSortedTodo(e.target.value)
         }
-    }
+    },
+    
 }
     
 </script>
