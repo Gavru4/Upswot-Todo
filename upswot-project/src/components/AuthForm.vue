@@ -1,12 +1,27 @@
 <template>
     <div class="auth-form__wrapper">
         <form class="auth-form" @submit.prevent="onUserLogin">
-            <label class="auth-form__label" for="name">Name:</label>
-            <input v-model="name" class="auth-form__input" id="name" type="text" name="name">
+            <div class="input__wrapper">
+                <label class="auth-form__label" for="name">Name</label>
+                <input v-model.trim="name" class="auth-form__input" @focus="validationNameError = false"
+                    v-bind:class="{ error: validationNameError }" id="name" type="text" name="name">
+                <p v-if="validationNameError" class="error__input-text">
+                    <img class="error-svg" src="../../public/images/Vector.svg" alt="error logo" height="11" width="11">
 
-            <label class="auth-form__label" for="password">Password:</label>
-            <input v-model="password" class="auth-form__input" id="password" type="password" name="password">
+                    Enter name
+                </p>
 
+            </div>
+            <div class="input__wrapper">
+                <label class="auth-form__label" for="password">Password</label>
+                <input v-model.trim="password" class="auth-form__input"
+                    v-bind:class="{ error: validationPasswordError }" @focus="validationPasswordError = false"
+                    id="password" type="password" name="password">
+                <p v-if="validationPasswordError" class="error__input-text">
+                    <img class="error-svg" src="../../public/images/Vector.svg" alt="error logo" height="11" width="11">
+                    Enter password
+                </p>
+            </div>
             <button class="btn__login">LOGIN</button>
             <button class="btn__forgot-password">Forgot Password</button>
         </form>
@@ -16,13 +31,14 @@
 
 <script>
 
-import { computed } from "@vue/reactivity";
 import { mapMutations, mapGetters } from "vuex";
 export default {
     data() {
         return {
             name: "",
-            password: ""
+            password: "",
+            validationNameError: false,
+            validationPasswordError: false
         }
     },
     computed: {
@@ -36,23 +52,32 @@ export default {
          loginUser: "loginUser"
      }),
 
-  async  onUserLogin() {
-       await this.loginUser({ login: this.name, password: this.password })
-        this.name = "",
-        this.password = ""
-       
-        this.userLoginInfo ? this.$router.push('/todo') : this.$router.push('/login')
-    }
-    }
+     async onUserLogin() {
+     if(this.password === "" && this.name === ""){
+            this.validationPasswordError = true
+            this.validationNameError = true
+        }else  if (this.name === "") {
+            this.validationNameError = true
+            
+         } else if (this.password === ""){
+             this.validationPasswordError = true
 
+         } 
+         else {
+             await this.loginUser({ login: this.name, password: this.password })
+             this.name = "",
+                this.password = ""
+
+             this.userLoginInfo ? this.$router.push('/todo') : this.$router.push('/login')
+         }
+     }
+            
+    },
 }
 </script>
 
 
 <style>
-
-
-
 .auth-form__wrapper {
     width: 480px;
     position: absolute;
@@ -74,10 +99,14 @@ export default {
 .auth-form__label {
     margin-bottom: 7px;
 }
-
+.input__wrapper {
+    display: flex;
+    flex-direction: column;
+ margin-bottom: 40px;
+}
 .auth-form__input {
-    height: 53px;
-    margin-bottom: 40px;
+    height: 53px; 
+   margin-bottom: 5px;
     padding: 15px;
 
     font-family: 'Roboto';
@@ -88,6 +117,20 @@ export default {
 
     background: #FFFFFF;
     border: 1px solid #9A9A9A;
+}
+.auth-form__input:hover,
+.auth-form__input:focus {
+    border-color:  #101010;
+}
+.error__input-text {
+    font-family: 'Roboto';
+   
+    font-size: 16px;
+    line-height: 19px;
+    color: #D60000;
+}
+.error {
+    border-color: #D60000;
 }
 
 .btn__login {

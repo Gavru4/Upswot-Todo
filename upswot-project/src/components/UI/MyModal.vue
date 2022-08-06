@@ -8,7 +8,7 @@
 
 <script>
 
-import { mapGetters, mapActions, mapMutations } from "vuex";
+import { mapGetters,  mapMutations } from "vuex";
 export default {
     name: 'my-modal',
     computed: mapGetters({

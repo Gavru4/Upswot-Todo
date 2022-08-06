@@ -3,6 +3,7 @@ import { todo } from "@/store/todo";
 
 export default createStore({
   state: {
+    userName: JSON.parse(localStorage.getItem("userName")) || "",
     isAuth: JSON.parse(localStorage.getItem("isUserLogin")) || false,
   },
   getters: {
@@ -16,6 +17,8 @@ export default createStore({
         login === process.env.VUE_APP_USER_LOGIN &&
         password === process.env.VUE_APP_USER_PASSWORD
       ) {
+        state.userName = login;
+        localStorage.setItem("userName", JSON.stringify(state.userName));
         state.isAuth = true;
         localStorage.setItem("isUserLogin", JSON.stringify(state.isAuth));
       } else {

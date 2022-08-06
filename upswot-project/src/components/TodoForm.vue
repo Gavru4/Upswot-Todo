@@ -1,7 +1,7 @@
 <template>
 
     <form class="todo-form" @submit.prevent="addNewTodo">
-        <input v-model="searchField" class="todo-form__input" type="text" placeholder="Enter your todo">
+        <input v-model.trim="searchField" class="todo-form__input" type="text" placeholder="Enter your todo">
         <button class="btn__add-todo">Add Todo</button>
 
     </form>

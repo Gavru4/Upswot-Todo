@@ -4,7 +4,7 @@
             <my-container class="todo-position">
                 <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
                 <div class="todo-wrapper">
-                    <h2 class="todo-header">Thank you ${name}!</h2>
+                    <h2 class="todo-header">Thank you {{userName}}!</h2>
                     <TodoForm />
                     <div class="additional-features">
                         <TodoFilter />
@@ -36,7 +36,7 @@ import TodoFilter from "@/components/TodoFilter.vue";
 import TodoList from "@/components/TodoList.vue";
 import SortedTodo from "../components/SortedTodo.vue";
 
-import { mapGetters } from "vuex";
+import { mapGetters,mapState } from "vuex";
 export default {
     data() {
         return {
@@ -46,6 +46,9 @@ export default {
         };
     },
     computed: {
+        ...mapState({
+            userName: state=>state.userName
+        }),
         ...mapGetters({
             userLoginInfo: "userLoginInfo"
         }),

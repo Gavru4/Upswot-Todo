@@ -1,5 +1,6 @@
 <template>
-    <input v-model="inputValue" @input="filter" class=" todo-filter__input" type="text" placeholder="Filter your todo">
+    <input v-model.trim="inputValue" @input="filter" class=" todo-filter__input" type="text"
+        placeholder="Filter your todo">
 </template>
 
 <script>
