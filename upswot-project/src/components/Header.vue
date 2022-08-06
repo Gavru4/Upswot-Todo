@@ -4,10 +4,7 @@
         <div class="header__top-wrapper"></div>
         <div class="header__logo-wrapper" :style="{ backgroundImage: createBackgroundString}">
             <my-container>
-                <!-- @click="$router.push('/todo')" -->
-                <router-link to="{{name: main}}">
-                    <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
-                </router-link>
+                <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
             </my-container>
         </div>
     </section>
@@ -33,16 +30,6 @@ export default {
 </script>
 
 <style scoped>
-
-
-
-
-
-
-/* .header {
-    width: 100vw;
-} */
-
 .header__top-wrapper {
     height: 53px;
     width: 100vw;
