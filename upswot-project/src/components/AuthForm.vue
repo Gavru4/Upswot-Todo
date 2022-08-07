@@ -77,15 +77,52 @@ export default {
 </script>
 
 
-<style>
-.auth-form__wrapper {
-    width: 480px;
-    position: absolute;
-    right: 0;
-    bottom: 170px;
+<style lang="scss" scoped >
 
-    background: #FFFFFF;
+
+
+
+
+
+
+
+
+
+
+
+
+$main-text-color: #333333;
+$background-color: #FFFFFF;
+$login-btn-color: #FFFFFF;
+$login-btn-hover-bgc: #FFFFFF;
+$login-btn-hover-border-color: #0076C0;
+$register-btn-hover-bgc: #FFFFFF;
+$register-btn-hover-border-color: #0076C0;
+$forgot-btn-bgc: #FFFFFF;
+$login-btn-bgc:  #0076C0;
+$forgot-btn-text-color: #056DAE;
+$forgot-btn-hover-color: #056DAE;
+$register-btn-text-color: #333333;
+$register-btn-bgc: #F6F6F6;
+
+.auth-form__wrapper {
+    margin: 20px auto 0;
+
+    background: $background-color;
     box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+
+        @media screen and (min-width: 768px) {
+            width: 335px;
+            margin: 0;
+            position: absolute;
+            right: -5px;
+            bottom: 170px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            width: 480px;
+            right: 0;
+        }
 }
 
 .auth-form {
@@ -98,11 +135,23 @@ export default {
 
 .auth-form__label {
     margin-bottom: 7px;
+
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 10px;
+   
+    color: $main-text-color;
+    
+    @media screen and (min-width: 768px) {
+        font-size: 18px;
+        line-height: 21px;
+    }
 }
 .input__wrapper {
     display: flex;
     flex-direction: column;
- margin-bottom: 40px;
+     margin-bottom: 40px;
 }
 .auth-form__input {
     height: 53px; 
@@ -134,15 +183,27 @@ export default {
 }
 
 .btn__login {
-    padding: 12px 10px 12px;
+    padding: 5px;
+
     font-family: 'Roboto';
+    font-size: 20px;
+    line-height: 25px;
 
-    font-size: 25px;
-    line-height: 29px;
-
-    color: #FFFFFF;
-
-    background: #0076C0;
+    color:$login-btn-color;
+    background:$login-btn-bgc;
+   
+        @media screen and (min-width: 768px) {
+            padding: 12px 10px 12px;
+            
+            font-size: 25px;
+            line-height: 29px;
+            
+        }
+&:hover {
+    color:$login-btn-hover-border-color;
+    background:$login-btn-hover-bgc;
+    border: 2px solid $login-btn-hover-border-color;
+}
 }
 
 .btn__forgot-password {
@@ -151,27 +212,48 @@ export default {
     font-size: 20px;
     line-height: 23px;
     border: none;
-    margin-top: 20px;
-    background-color: #fff;
+    margin-top: 15px;
+    background-color: $forgot-btn-bgc;
 
 
-    color: #056DAE;
+    color:$forgot-btn-text-color #056DAE;
+
+    
+        @media screen and (min-width: 768px) {
+            margin-top: 20px;
+        }
+
+    &:hover {
+        color: $forgot-btn-hover-color;
+    }
 }
 
 .btn__register {
     width: 100%;
-    height: 63px;
-    padding: 17px 0;
+    height: 50px;
+    padding: 10px 0;
 
     font-family: 'Roboto';
-    font-size: 25px;
-    line-height: 29px;
+    font-size: 20px;
+    line-height: 25px;
 
-    color: #333333;
+    color: $register-btn-text-color;
     border: none;
+    background:$register-btn-bgc;
 
-
-
-    background: #F6F6F6;
+    @media screen and (min-width: 480px) {}
+    
+        @media screen and (min-width: 768px) {
+            width: 100%;
+            height: 63px;
+            padding: 17px 0;
+            
+            font-size: 25px;
+        }
+  &:hover {
+    color: $register-btn-hover-border-color;
+        background: $register-btn-hover-bgc;
+        border: 2px solid $register-btn-hover-border-color;
+ }
 }
 </style>

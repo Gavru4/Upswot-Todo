@@ -29,13 +29,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+
+ $header-top-bgc:  #333333;
+ 
+
 .header__top-wrapper {
     height: 53px;
     width: 100vw;
-
-    background-color: #000;
-}
+    background-color: $header-top-bgc;
+    }
 
 .header__logo-wrapper {
     width: 100vw;
@@ -44,9 +48,25 @@ export default {
 }
 
 .logo {
-    height: 66px;
-    width: 103px;
+    display: block;
+    height: 50px;
+    width: 80px;
+    margin: 0 auto;
 
-    color: #fff;
+        @media screen and (min-width: 480px) {
+            height: 66px;
+            width: 103px;
+        }
+    
+        @media screen and (min-width: 768px) {
+            height: 66px;
+            width: 103px;
+            margin: 0;
+        }
+    
+        @media screen and (min-width: 1280px) {
+            height: 66px;
+            width: 103px;
+        }
 }
 </style>

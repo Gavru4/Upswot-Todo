@@ -23,29 +23,64 @@
 
 
 
-<style scoped>
+<style  lang="scss" scoped>
 
 
 
-
-
+$copyright-color: #FFFFFF;
+ $barrier-border-color: #FFFFFF;
+$nav-link-color: #FFFFFF;
+$footer-bgc:  #333333;
 .footer {
     padding: 30px 0 35px 0;
-    background: #333333;
+    background: $footer-bgc;
 }
 
 .footer-logo {
-    width: 55.99px;
-    height: 35px;
+        position: absolute;
+        right: 50px;
+        top: 16px;
 
-    color: #fff;
+        width: 90px;
+        height: 90px;
+ 
+    @media screen and (min-width: 480px) {
+        position: static;
+        margin: 0 auto 20px;
+        display: block;
+
+        width: 56px;
+        height: 35px;
+        }
+    
+        @media screen and (min-width: 1280px) {
+        width: 56px;
+        height: 35px;
+        margin: 0;
+        }
 }
 
 .footer-nav__wrapper {
+    position: relative;
+    margin-bottom: 10px;
+   
+    @media screen and (min-width: 1280px) {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 30px;
+    }
+
+
+}
+.footer-nav {
+    display: flex; 
+    flex-direction: column;
+
+    @media screen and (min-width: 480px) {
+        display: block;
+    }
+
 }
 
 .footer-nav__link {
@@ -58,9 +93,7 @@
     line-height: 25px;
     text-decoration: none;
 
-
-
-    color: #FFFFFF;
+    color:$nav-link-color;
 }
 
 .footer-nav__link:last-child {
@@ -69,9 +102,13 @@
 
 .barrier__my-style {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     
-    border: 1px solid #FFFFFF;
+    border: 1px solid $barrier-border-color;  
+    @media screen and (min-width: 1280px) {
+    margin-bottom: 30px;
+                
+}
 }
 .copyright {
     font-family: 'Roboto';
@@ -80,6 +117,6 @@
     font-size: 12px;
     line-height: 19px;
 
-    color: #FFFFFF;
+    color:$copyright-color;
 }
 </style>

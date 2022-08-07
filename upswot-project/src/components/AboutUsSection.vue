@@ -2,12 +2,13 @@
     <section class="about-us">
         <my-container>
             <div class="wrapper">
-
                 <p class="about-us__description">Business Analytics — a new, convenient tool for managing and
                     forecasting your
                     business performance, which will
-                    help analyze your own finances and cash flows, visualize your reporting, business processes, KPI's
+                    help analyze your own finances and cash flows, visualize your reporting, business processes,
+                    KPI's
                 </p>
+
                 <ul class="benefits">
 
                     <li class="benefits__item">
@@ -17,11 +18,12 @@
                                 d="M19.9584 0L23 2.99416L8.77173 17L0 8.36558L3.04162 5.37142L8.77173 11.0118L19.9584 0Z"
                                 fill="#0076C0" />
                         </svg>
-                        <div class="benefits__description">
+                        <div class="benefits__wrapper">
 
                             <h2 class="benefits__heading"><strong>Interactive Reporting</strong></h2>
 
-                            <p>In just a few clicks, you can connect your data from 1C, CRM (Bitrix24, AmoCRM, ZohoCRM),
+                            <p class="benefits__description">In just a few clicks, you can connect your data from 1C,
+                                CRM (Bitrix24, AmoCRM, ZohoCRM),
                                 E-commerce
                                 (PROM.UA, Rozetka, ebay), Logistic (Nova Poshta), Google Analytics and many more systems
                                 that reflect
@@ -35,11 +37,12 @@
                                 d="M19.9584 0L23 2.99416L8.77173 17L0 8.36558L3.04162 5.37142L8.77173 11.0118L19.9584 0Z"
                                 fill="#0076C0" />
                         </svg>
-                        <div class="benefits__description">
+                        <div class="benefits__wrapper">
 
                             <h2 class="benefits__heading"><strong>Automated data updates</strong></h2>
 
-                            <p>The application automatically updates and structures the data in just 60 seconds, saving
+                            <p class="benefits__description">The application automatically updates and structures the
+                                data in just 60 seconds, saving
                                 you time and
                                 money.</p>
                         </div>
@@ -51,15 +54,17 @@
                                 d="M19.9584 0L23 2.99416L8.77173 17L0 8.36558L3.04162 5.37142L8.77173 11.0118L19.9584 0Z"
                                 fill="#0076C0" />
                         </svg>
-                        <div class="benefits__description">
+                        <div class="benefits__wrapper">
 
                             <h2 class="benefits__heading"><strong>Data Security</strong></h2>
 
-                            <p>The Bank guarantees the safety of your personal data, ensuring their integrity and
+                            <p class="benefits__description">The Bank guarantees the safety of your personal data,
+                                ensuring their integrity and
                                 confidentiality.</p>
                         </div>
                     </li>
                 </ul>
+
                 <AuthForm/>
 
             </div>
@@ -76,47 +81,93 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+$main-text-color: #333333;
 
 .about-us__description {
-    width: 664px;
-
     font-family: 'Roboto';
     font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
+
+    color: $main-text-color;
+
+    @media screen and (min-width: 480px) {
+        max-width:none;
+    }
+    
+    @media screen and (min-width: 768px) {
+    width: 400px;
+    
     font-size: 16px;
-    line-height: 1.6;
-
+    line-height: 25px;
+    
     margin-bottom: 15px;
-
-    color: #333333;
+    }
+    
+    @media screen and (min-width: 1280px) {
+    width: 664px;
+    }
 }
 
 .about-us {
-
     padding: 40px 0 40px 0;
 }
 
 .benefits {
-    list-style: none
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .benefits__heading {
+    margin-bottom: 5px;
+
     font-family: 'Roboto';
-    font-style: normal;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 1.6;
-
-    margin-bottom: 10px;
-
-
-    color: #333333;
+    font-size: 12px;
+    line-height: 15px;
+   
+    color: $main-text-color;
+    
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 25px;
+        
+        margin-bottom: 10px;
+    }
 }
 
 .benefits__item {
-    width: 670px;
     display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+
+        @media screen and (min-width: 768px) {
+            width: 370px;
+            margin-bottom: 15px;
+        }
+        
+         @media screen and (min-width: 1280px) {
+            width: 670px;
+        }
+}
+.benefits__description {
+    font-family: 'Roboto';
+ 
+    font-size: 10px;
+    line-height: 12px;
+    
+    color: $main-text-color;
+    
+    @media screen and (min-width: 768px) {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    
 }
 
 .benefits__item:last-child {
@@ -127,7 +178,7 @@ export default {
     margin-right: 15px;
 }
 
-.benefits__description {
+.benefits__wrapper {
     width: 630px;
 }
 

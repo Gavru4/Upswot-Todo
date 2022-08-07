@@ -6,41 +6,51 @@
     </section>
 </template>
 
-<style>
-.container {
-    width: 1200px;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+<style lang="scss" scoped>
+
+
+$main-header-color: #FFFFFF;
+
+
 .main {
-
-    width: 100vw;
     background-image: url('../../public/images/Фон-1x.jpg');
+    background-position: center;
+    background-size: cover;
 }
-.about-us__description {
-    width: 664px;
 
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.6;
-
-    margin-bottom: 15px;
-
-    color: #333333;
-}
-.about-us {
-
-    padding: 40px 0 40px 0;
-}
 .heading {
     font-family: 'Roboto';
-    font-size: 55px;
-    line-height: 1.6;
-    padding-top: 215px;
-    padding-bottom: 70px;
+    font-size: 20px;
+    line-height: 35px;
+    text-align: right;
 
-    color: #FFFFFF;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    color: $main-header-color;
+
+    @media screen and (min-width: 480px) {
+        font-size: 25px;
+        line-height: 40px;
+
+        padding-top: 35px;
+        padding-bottom: 35px;          
+    }
+        @media screen and (min-width: 768px) {
+            font-size: 35px;
+            line-height: 42px;
+            text-align: left;
+
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    
+        @media screen and (min-width: 1280px) {
+            font-size: 55px;
+            line-height: 86px;
+            padding-top: 215px;
+            padding-bottom: 70px;
+        
+        }
 }
 </style>
