@@ -4,12 +4,13 @@
   </h2>
   <ul v-else class="todo-list">
     <li class="todo-item" v-for="todo in todoList" :key="todo.id">
-      <div v-bind:class="{ done: todo.completed }">
+      <div class="checkbox-wrapper" v-bind:class="{ done: todo.completed }">
         <input class="todo-checkbox" type="checkbox" v-bind:checked="todo.completed"
           v-on:change="toggleCheckBox(todo.id)" />
-        {{ todo.title }}
+        <p class="checkbox-text">{{ todo.title }}</p>
+
       </div>
-      <div>
+      <div class="btn-wrapper">
         <button @click="updateTodo({ id: todo.id, title: todo.title })" class="update__btn">
           Update todo
         </button>
@@ -56,10 +57,27 @@ export default {
 </script>
 
 
-<style  scoped>
+<style lang="scss"  scoped>
+
+
+$main-text0color: #333333;
  .todo-list {
-  margin-top: 50px;
-  list-style: none;
+  margin-top: 25px;
+    list-style: none;
+      @media screen and (min-width: 480px) {
+         
+        }
+      
+        @media screen and (min-width: 768px) {
+        
+      
+        }
+      
+        @media screen and (min-width: 1280px) {
+          margin-top: 50px;
+            list-style: none;
+        }
+  
 } 
 
  .item-heading {
@@ -73,33 +91,53 @@ export default {
 } 
 
  .todo-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
 
-  font-family: "Roboto";
-  font-size: 25px;
-  line-height: 29px;
-  color: #333333;
+    font-family: "Roboto";
+    font-size: 20px;
+    line-height: 20px;
 
-  padding: 15px 19px;
-  margin-bottom: 20px;
+    color: $main-text0color;
+    padding: 10px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    @media screen and (min-width: 1280px) {
+    flex-direction: row;
+    justify-content: space-between;
 
-  border: 1px solid #ccc;
+    font-size: 25px;
+    line-height: 29px;
 
+    padding: 15px 19px;
+    margin-bottom: 20px;
+}
 } 
+.checkbox-wrapper{
+    display: flex;
+    align-items: center;
+}
 
 .update__btn {
   padding: 10px;
   border-radius: 10px;
 
   font-family: "Roboto";
-  font-size: 20px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 15px;
 
   border: none;
   background: #00a9e7;
   color: #fff;
+    @media screen and (min-width: 768px) {
+      
+    }
+    
+      @media screen and (min-width: 1280px) {
+      font-size: 20px;
+      line-height: 20px;  
+      }
 }
 
 .del__btn {
@@ -108,18 +146,36 @@ export default {
   border-radius: 10px;
 
   font-family: "Roboto";
-  font-size: 20px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 15px;
 
   border: none;
   background: red;
   color: #fff;
+    @media screen and (min-width: 768px) {
+        
+      }
+    
+      @media screen and (min-width: 1280px) {
+     
+        font-size: 20px;
+        line-height: 20px;
+      
+     
+      }
 }
 
 .todo-checkbox {
   width: 20px;
   height: 20px;
   margin-right: 15px;
+}
+.btn-wrapper{
+ margin:15px  auto 0;
+  @media screen and (min-width: 1280px) {
+
+  margin: 0;
+}
 }
 
 .done {

@@ -26,21 +26,32 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+$filter-bgc: #00A9E7;
 
 .todo-filter__input {
     display: block;
-    width: 600px;
-    height: 60px;
-    padding: 20px;
-    /* margin: 0 auto; */
-    
+    height: 45px;
+    padding: 10px;
+
     font-family: 'Roboto';
-    font-size: 25px;
-    line-height: 29px;
-    
+    font-size: 20px;
+    line-height: 25px;
+
     border-radius: 5px;
-    /* color: #fff; */
-    background-color: #00A9E7;
+    background-color: $filter-bgc;
+
+    @media screen and (min-width: 1280px) {
+            display: block;
+            width: 600px;
+            height: 60px;
+            padding: 20px;
+             
+            font-size: 25px;
+            line-height: 29px;
+    
+}
+    
 }
 </style>

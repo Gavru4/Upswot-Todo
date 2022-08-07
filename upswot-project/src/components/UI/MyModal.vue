@@ -1,8 +1,11 @@
 <template>
     <div class="modal" v-if="isModalOpen" @click.stop="openModal">
+
+
         <div @click.stop class="modal__content">
             <slot></slot>
         </div>
+
     </div>
 </template>
 
@@ -26,7 +29,15 @@ export default {
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+
+
+
+
+
+
+
 
 
 
@@ -46,7 +57,15 @@ z-index: 99;
     background: white;
     border-radius: 12px;
     min-height: 50px;
-    min-width: 300px;
-    padding: 60px;
+    width: 300px;
+    padding: 30px;
+    @media screen and (min-width: 480px) {
+        width: 450px;
+}
+    @media screen and (min-width: 768px) {
+        width: 700px;
+        padding: 50px;
+}
+
 }
 </style>

@@ -2,7 +2,7 @@
 
     <section class="header">
         <div class="header__top-wrapper"></div>
-        <div class="header__logo-wrapper" :style="{ backgroundImage: createBackgroundString}">
+        <div class="header__logo-wrapper" >
             <my-container>
                 <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
             </my-container>
@@ -11,28 +11,12 @@
 
 </template>
 
-<script>
-export default {
-
-    data() {
-        return {
-            angle: '180',
-            color1: '#00A9E7',
-            color2: '#005B9F'
-        }
-    },
-    computed: {
-        createBackgroundString() {
-            return `linear-gradient(${this.angle}deg, ${this.color1}, ${this.color2})`;
-        }
-    }
-}
-</script>
-
 <style lang="scss" scoped>
 
 
  $header-top-bgc:  #333333;
+ $header-gradient-top-bgc:  #00A9E7;
+ $header-gradient-bottom-bgc:  #005B9F;
  
 
 .header__top-wrapper {
@@ -43,8 +27,9 @@ export default {
 
 .header__logo-wrapper {
     width: 100vw;
-
     padding: 15px 0;
+
+    background: linear-gradient(180deg, $header-gradient-top-bgc, $header-gradient-bottom-bgc);
 }
 
 .logo {

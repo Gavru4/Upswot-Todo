@@ -1,7 +1,8 @@
 <template>
 
     <form class="update-form" @submit.prevent="update">
-        <input v-model.trim="searchField" class="update-form__input" type="text" placeholder="Enter your todo">
+        <input v-model.trim="searchField" ref="focusTextarea" class="update-form__input" type="text"
+            placeholder="Enter your todo">
         <button class="btn__update-todo">Update Todo</button>
 
     </form>
@@ -40,18 +41,23 @@ export default {
                 })
             }
 
-        }
+        },
+        
+        
+    },
+    mounted() {
+        this.$refs.focusTextarea.focus()
     }
 }
 </script>
 
-<style>
+<style lang="scss"  scoped>
 
 
+$main-text0color: #333333;
 
 
 .update-form {
-    width: 700px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -71,7 +77,6 @@ export default {
     line-height: 29px;
 
     color: #333333;
-    /* border: 2px solid #9A9A9A; */
 }
 
 .btn__update-todo {

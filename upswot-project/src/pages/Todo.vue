@@ -1,6 +1,6 @@
 <template>
     <div v-if="userLoginInfo">
-        <div class="wrapper" :style="{ backgroundImage: createBackgroundString }">
+        <div class="wrapper">
             <my-container class="todo-position">
                 <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
                 <div class="todo-wrapper">
@@ -11,11 +11,13 @@
                         <SortedTodo class="sorted__todo" />
 
                     </div>
-
+              
+               
                     <TodoList />
 
                 </div>
-                <my-barrier class="barrier__my-style"></my-barrier>
+             <my-barrier class="barrier__my-style"></my-barrier>
+
             </my-container>
         </div>
 
@@ -38,13 +40,6 @@ import SortedTodo from "../components/SortedTodo.vue";
 
 import { mapGetters,mapState } from "vuex";
 export default {
-    data() {
-        return {
-            angle: "180",
-            color1: "#00A9E7",
-            color2: "#005B9F"
-        };
-    },
     computed: {
         ...mapState({
             userName: state=>state.userName
@@ -52,46 +47,88 @@ export default {
         ...mapGetters({
             userLoginInfo: "userLoginInfo"
         }),
-        createBackgroundString() {
-            return `linear-gradient(${this.angle}deg, ${this.color1}, ${this.color2})`;
-        }
     },
     components: { TodoForm, TodoFilter, TodoList, SortedTodo }
 }
 </script>
 
-<style scoped>
+<style  lang="scss" scoped>
 
 
 
 
 
+
+
+
+
+
+$select-bgc: #00A9E7;
+$todo-wrapper-bgc: #FFFFFF;
+$main-text0color: #333333;
+ $header-gradient-top-bgc: #00AFED;
+ $header-gradient-bottom-bgc: #00569A;
 
 
 .wrapper {
+    height: 550px;
+    padding-top: 20px;
+
+    background: linear-gradient(180deg, $header-gradient-top-bgc, $header-gradient-bottom-bgc );
+
+    @media screen and (min-width: 768px) {
+        height: 600px;
+        padding-top: 25px;
+    }
+    
+    @media screen and (min-width: 1280px) {
     height: 797px;
     padding-top: 65px;
-
-    /* background: linear-gradient(180deg, #00AFED, #00569A); */
+                
+    }
+    
 }
 
 .logo {
     display: block;
+    width: 100px;
+    height: 70px;
+    margin: 0 auto 35px;
+
+    @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 100px;
+    }
+
+    @media screen and (min-width: 1280px) {
     width: 186px;
     height: 119px;
     margin: 0 auto 65px;
+    }
+
+    
 }
 .todo-position {
     position: relative;
 }
 .todo-wrapper {
-    min-height: 660px;
-    padding: 30px;
-    /* position: absolute;
-    top: 0;
-    left: 0; */
+    min-height: 550px;
+    padding: 15px;
+    background:$todo-wrapper-bgc;
 
-    background: #FFFFFF;
+            
+    @media screen and (min-width: 768px) {
+        min-height: 660px;
+            padding: 30px;
+    }
+            
+    @media screen and (min-width: 1280px) {
+        min-height: 660px;
+        padding: 30px;
+
+    }
+
+   
 }
 .bottom-wrapper {
     height: 100vh;
@@ -99,44 +136,82 @@ export default {
 }
 .todo-header {
     font-family: 'Roboto';
-    font-weight: 700;
-    font-size: 60px;
-    line-height: 94px;
-    /* identical to box height, or 94px */
-
+    font-size: 30px;
+    line-height: 30px;
     text-align: center;
 
-    color: #333333;
+    color: $main-text0color;
+    @media screen and (min-width: 768px) {
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 60px;
+    }
+    @media screen and (min-width: 1280px) {
+        font-weight: 700;
+        font-size: 60px;
+        line-height: 94px;  
+    } 
 }
 .additional-features {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: stretch;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row;
+        
+}
+    @media screen and (min-width: 1280px) {
+        display: flex;
+        justify-content: space-around;
+    }
+    
 }
 .sorted__todo{
-    width: 200px;
-    height: 60px;
-    padding: 15px;
-    
+    width: 150px;
+    height: 40px;
+    margin: 15px auto 0;
+    padding: 5px;
+
     font-family: 'Roboto';
-    font-size: 22px;
-    line-height: 20px;
-    
+    font-size: 16px;
+    line-height: 15px;
+
     border-radius: 5px;
+    background-color:$select-bgc;
         
-    background-color: #00A9E7;
+    @media screen and (min-width: 768px) {
+        margin: 0;
+        
+    }
+ @media screen and (min-width: 1280px) {
+        width: 200px;
+        height: 60px;
+        padding: 15px;
+                
+        font-size: 22px;
+        line-height: 20px;               
+}
+    
 }
 .barrier__my-style {
-width: 1160px;
-position: absolute;
-top: 440px;
-border: 1px solid #000000;
+ @media screen and (min-width: 1280px) {
+    width: 1160px;
+    position: absolute;
+    top: 490px;
+    border: 1px solid #000000;
+    }
+   
 }
 
 .redirect__btn {
     display: flex;
     font-family: 'Roboto';
     font-weight: 700;
-    Font-size: 40px;
+    font-size: 40px;
     line-height: 94px;     
     justify-content: center;
     text-decoration: none;
@@ -144,9 +219,8 @@ border: 1px solid #000000;
 .redirect__text {
     font-family: 'Roboto';
     font-weight: 700;
-    Font-size: 40px;
+    font-size: 40px;
     line-height: 94px;
     text-align: center;
 }
-
 </style>

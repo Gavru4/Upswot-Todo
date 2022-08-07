@@ -1,6 +1,6 @@
 <template>
 
-    <select v-model.trim="searchQuery" @change="selectTodo">
+    <select v-model.trim="searchQuery" @change="selectTodo" >
         <option value="all">All</option>
         <option value="completed">Completed</option>
         <option value="incomplete">Incomplete</option>
