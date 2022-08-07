@@ -1,4 +1,10 @@
-const { defineConfig } = require('@vue/cli-service')
+const { defineConfig } = require("@vue/cli-service");
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+
 module.exports = defineConfig({
-  transpileDependencies: true
-})
+  transpileDependencies: true,
+
+  configureWebpack: {
+    plugins: [new MiniCssExtractPlugin()],
+  },
+});
