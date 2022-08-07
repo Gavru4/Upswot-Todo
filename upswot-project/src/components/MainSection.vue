@@ -9,6 +9,7 @@
 <style lang="scss" scoped>
 
 
+
 $main-header-color: #FFFFFF;
 
 
@@ -20,6 +21,9 @@ $main-header-color: #FFFFFF;
 
 .heading {
     font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    
     font-size: 20px;
     line-height: 35px;
     text-align: right;
@@ -37,8 +41,8 @@ $main-header-color: #FFFFFF;
         padding-bottom: 35px;          
     }
         @media screen and (min-width: 768px) {
-            font-size: 35px;
-            line-height: 42px;
+            font-size: 30px;
+            line-height: 44px;
             text-align: left;
 
             padding-top: 80px;
