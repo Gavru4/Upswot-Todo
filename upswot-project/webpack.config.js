@@ -1,10 +1,26 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: "index.js",
+  context: __dirname,
+  entry: "./src/index.js",
   output: {
-    path: __dirname + "/dist",
-    filename: "index_bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    filename: "main.js",
   },
-  plugins: [new HtmlWebpackPlugin()],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: "babel-loader",
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [{ loader: MiniCssExtractPlugin.loader }, "css-loader"],
+      },
+    ],
+  },
+  plugins: [new HtmlWebPackPlugin(), new MiniCssExtractPlugin()],
 };
