@@ -53,16 +53,6 @@ export default {
 </script>
 
 <style  lang="scss" scoped>
-
-
-
-
-
-
-
-
-
-
 $select-bgc: #00A9E7;
 $todo-wrapper-bgc: #FFFFFF;
 $main-text0color: #333333;
