@@ -1,12 +1,14 @@
 <template>
 
     <form class="todo-form" @submit.prevent="addNewTodo">
-        <input v-model.trim="searchField" @focus="todoEnterError = false"
-            class=" todo-form__input" type="text" placeholder="Enter your todo">
-        <p v-if="todoEnterError" class="error__input-text">
-            <img class="error-svg" src="../../public/images/Vector.svg" alt="error logo" height="11" width="11">
-            Please enter todo
-        </p>
+        <div class="input-wrapper">
+            <input v-model.trim="searchField" @focus="todoEnterError = false" class="todo-form__input" type="text"
+                placeholder="Enter your todo">
+            <p v-if="todoEnterError" class="error__input-text">
+                <img class="error-svg" src="../../public/images/Vector.svg" alt="error logo" height="11" width="11">
+                Please enter todo
+            </p>
+        </div>
         <div>
             <button class="btn__add-todo">Add Todo</button>
         </div>
@@ -61,6 +63,10 @@ data: () => ({
 
 
 
+
+
+
+
 $btn-hover-bgc: #FFFFFF;
 $btn-hover-border-color: #0076C0;
 $main-text0color: #333333;
@@ -72,6 +78,7 @@ $button-bgc: #45b7ff;
     display: flex;
     align-items: stretch;
     flex-direction: column;
+    min-height: 135px;
 
     padding: 15px;
     margin: 15px auto;
@@ -90,10 +97,16 @@ $button-bgc: #45b7ff;
 
    
 }
+.input-wrapper {
+    height: 50px;
+    margin-bottom: 15px;
+}
 
 .todo-form__input {
+    width: 100%;
     height: 30px;
     padding: 5px;
+    margin-bottom: 5px;
 
     font-family: 'Roboto';
     font-size: 20px;
@@ -114,14 +127,16 @@ $button-bgc: #45b7ff;
 
 .btn__add-todo {
     display: block;
-    margin: 15px auto 0;
+    margin: 0 auto ;
     padding: 7px;
+    box-sizing: border-box;
     
     font-family: 'Roboto';
     font-size: 15px;
     line-height: 15px;
 
     border: none;
+  
     border-radius: 10px;
     background-color:$button-bgc ;
     color: $main-text0color;
@@ -132,16 +147,23 @@ $button-bgc: #45b7ff;
     font-size: 20px;
     line-height: 20px;
                 
-    border: none;                  
+    border: none;        
+      
 }
 
  &:hover {
     color: $btn-hover-border-color;
     background: $btn-hover-bgc;
-    border: 2px solid $btn-hover-border-color;
+
+    border-color: $btn-hover-border-color;
+    box-sizing: border-box;
+    
+
  }
  .error__input-text {
      font-family: 'Roboto';
+     position: absolute;
+     z-index: 3;
 
      font-size: 16px;
      line-height: 19px;

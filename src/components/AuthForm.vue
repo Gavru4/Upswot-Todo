@@ -7,10 +7,8 @@
                     v-bind:class="{ error: validationNameError }" id="name" type="text" name="name">
                 <p v-if="validationNameError" class="error__input-text">
                     <img class="error-svg" src="../../public/images/Vector.svg" alt="error logo" height="11" width="11">
-
                     Enter name
                 </p>
-
             </div>
             <div class="input__wrapper">
                 <label class="auth-form__label" for="password">Password</label>
@@ -78,6 +76,7 @@ export default {
 
 
 <style lang="scss" scoped >
+
 
 
 
@@ -184,6 +183,7 @@ $register-btn-bgc: #F6F6F6;
 
 .btn__login {
     padding: 5px;
+    box-sizing: border-box;
 
     font-family: 'Roboto';
     font-size: 20px;
@@ -203,6 +203,7 @@ $register-btn-bgc: #F6F6F6;
     color:$login-btn-hover-border-color;
     background:$login-btn-hover-bgc;
     border: 2px solid $login-btn-hover-border-color;
+    
 }
 }
 

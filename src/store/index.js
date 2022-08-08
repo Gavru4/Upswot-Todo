@@ -22,6 +22,7 @@ export default createStore({
         state.isAuth = true;
         localStorage.setItem("isUserLogin", JSON.stringify(state.isAuth));
       } else {
+        alert("Please enter correct data or register");
         return state.isAuth;
       }
     },

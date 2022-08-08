@@ -1,5 +1,3 @@
-import { initCustomFormatter } from "vue";
-
 export const todo = {
   state: () => ({
     searchQuery: JSON.parse(localStorage.getItem("searchQuery")) || "all",
@@ -8,9 +6,6 @@ export const todo = {
     todoList: JSON.parse(localStorage.getItem("todo")) || [],
   }),
   getters: {
-    // valueForUpdate(state) {
-    //   return state.updatedTodo;
-    // },
     todoCompleted(state) {
       return state.todoList;
     },
@@ -66,7 +61,6 @@ export const todo = {
     findTodoForUpdate(state, todoData) {
       state.showModal = !state.showModal;
       state.updatedTodo = todoData;
-      // state.updatedTodo = title;
     },
     updateTodo(state, { title, id }) {
       state.showModal = !state.showModal;
@@ -76,7 +70,6 @@ export const todo = {
           el.title = title;
         }
       });
-      // state.updatedTodo = title;
     },
   },
   namespaced: true,
