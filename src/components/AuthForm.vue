@@ -90,6 +90,8 @@ export default {
 
 
 
+
+
 $main-text-color: #333333;
 $background-color: #FFFFFF;
 $login-btn-color: #FFFFFF;
@@ -203,6 +205,7 @@ $register-btn-bgc: #F6F6F6;
     color:$login-btn-hover-border-color;
     background:$login-btn-hover-bgc;
     border: 2px solid $login-btn-hover-border-color;
+    cursor: pointer;
     
 }
 }
@@ -226,6 +229,7 @@ $register-btn-bgc: #F6F6F6;
 
     &:hover {
         color: $forgot-btn-hover-color;
+        cursor: pointer;
     }
 }
 
@@ -255,6 +259,7 @@ $register-btn-bgc: #F6F6F6;
     color: $register-btn-hover-border-color;
         background: $register-btn-hover-bgc;
         border: 2px solid $register-btn-hover-border-color;
+        cursor: pointer;
  }
 }
 </style>

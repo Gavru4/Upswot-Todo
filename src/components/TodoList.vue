@@ -61,6 +61,26 @@ export default {
 
 <style lang="scss"  scoped>
 
+
+
+
+
+
+
+
+
+
+
+
+$btn-update-hover-color: #FFFFFF;
+$btn-update-hover-bgc: #0565a0;
+$btn-delete-hover-color: #FFFFFF;
+$btn-delete-hover-bgc: rgb(184, 3, 3);
+$update-btn-bgc: #00a9e7;
+$update-btn-color:#fff;
+$del-btn-bgc: red;
+
+
 //list animation
 
 .todo-list-item {
@@ -140,9 +160,11 @@ $main-text0color: #333333;
   font-size: 15px;
   line-height: 15px;
 
+
   border: none;
-  background: #00a9e7;
-  color: #fff;
+  background:$update-btn-bgc;
+  color:$update-btn-color;
+  
     @media screen and (min-width: 768px) {
       
     }
@@ -151,6 +173,13 @@ $main-text0color: #333333;
       font-size: 20px;
       line-height: 20px;  
       }
+            &:hover {
+              color: $btn-update-hover-color;
+              background: $btn-update-hover-bgc;
+              cursor: pointer;
+             
+      
+            }
 }
 
 .del__btn {
@@ -161,9 +190,10 @@ $main-text0color: #333333;
   font-family: "Roboto";
   font-size: 15px;
   line-height: 15px;
+  box-sizing: border-box;
 
   border: none;
-  background: red;
+  background:$del-btn-bgc;
   color: #fff;
     @media screen and (min-width: 768px) {
         
@@ -176,6 +206,13 @@ $main-text0color: #333333;
       
      
       }
+            &:hover {
+            color: $btn-delete-hover-color;
+              background: $btn-delete-hover-bgc;
+              cursor: pointer;
+          
+      
+            }
 }
 
 .todo-checkbox {

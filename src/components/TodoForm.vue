@@ -67,6 +67,7 @@ data: () => ({
 
 
 
+
 $btn-hover-bgc: #FFFFFF;
 $btn-hover-border-color: #0076C0;
 $main-text0color: #333333;
@@ -154,9 +155,8 @@ $button-bgc: #45b7ff;
  &:hover {
     color: $btn-hover-border-color;
     background: $btn-hover-bgc;
-
     border-color: $btn-hover-border-color;
-    box-sizing: border-box;
+    cursor: pointer;
     
 
  }
