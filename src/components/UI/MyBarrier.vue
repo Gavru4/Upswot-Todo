@@ -1,19 +1,15 @@
 <template>
-<span class="barrier"></span>
+  <span class="barrier"></span>
 </template>
-
-
 
 <script>
 export default {
-    name: "my-barrier"
-}
+  name: "my-barrier",
+};
 </script>
 <style>
-
-
 .barrier {
-    display: inline-block;
-    height: 0px;
+  display: inline-block;
+  height: 0px;
 }
 </style>
