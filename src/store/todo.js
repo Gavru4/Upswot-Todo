@@ -59,9 +59,10 @@ export const todo = {
     },
 
     findTodoForUpdate(state, todoData) {
-      state.showModal = !state.showModal;
+      state.showModal = true;
       state.updatedTodo = todoData;
     },
+
     updateTodo(state, { title, id }) {
       state.showModal = !state.showModal;
 
@@ -70,6 +71,7 @@ export const todo = {
           el.title = title;
         }
       });
+      localStorage.setItem("todo", JSON.stringify(state.todoList));
     },
   },
   namespaced: true,

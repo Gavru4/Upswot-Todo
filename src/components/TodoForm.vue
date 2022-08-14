@@ -10,7 +10,9 @@
             </p>
         </div>
         <div>
-            <button class="btn__add-todo">Add Todo</button>
+            <my-button class="btn__add-todo" text="Add Todo" />
+
+            <!-- <button class="btn__add-todo">Add Todo</button> -->
         </div>
 
     </form>

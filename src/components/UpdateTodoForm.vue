@@ -3,7 +3,8 @@
     <form class="update-form" @submit.prevent="update">
         <input v-model.trim="searchField" ref="focusTextarea" class="update-form__input" type="text"
             placeholder="Enter your todo">
-        <button class="btn__update-todo">Update Todo</button>
+        <my-button class="btn__update-todo" text="Update todo" />
+        <!-- <button class="btn__update-todo">Update Todo</button> -->
 
     </form>
 

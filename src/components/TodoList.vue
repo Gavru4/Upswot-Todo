@@ -12,12 +12,17 @@
 
         </label>
         <div class="btn-wrapper">
-          <button @click="updateTodo({ id: todo.id, title: todo.title })" class="update__btn">
+
+          <my-button @click="updateTodo({ id: todo.id, title: todo.title })" class="update__btn" text="Update todo" />
+          <my-button @click="removeTodo(todo.id)" class="del__btn" text="Delete todo" />
+
+
+          <!-- <button @click="updateTodo({ id: todo.id, title: todo.title })" class="update__btn">
             Update todo
-          </button>
-          <button @click="removeTodo(todo.id)" class="del__btn">
+          </button> -->
+          <!-- <button @click="removeTodo(todo.id)" class="del__btn">
             Delete todo
-          </button>
+          </button> -->
         </div>
       </li>
     </transition-group>

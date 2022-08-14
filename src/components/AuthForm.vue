@@ -20,10 +20,10 @@
                     Enter password
                 </p>
             </div>
-            <button class="btn__login">LOGIN</button>
-            <button class="btn__forgot-password">Forgot Password</button>
+            <my-button class=" btn__login" text="LOGIN" />
+            <my-button class="btn__forgot-password" text="Forgot Password" />
         </form>
-        <button class="btn__register">Register now</button>
+        <my-button class="btn__register" text="Register now" />
     </div>
 </template>
 
@@ -49,7 +49,6 @@ export default {
      ...mapMutations({
          loginUser: "loginUser"
      }),
-
      async onUserLogin() {
         console.log('this.name :>> ', this.name);
      if(this.password === "" && this.name === ""){
