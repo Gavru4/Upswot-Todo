@@ -3,20 +3,20 @@ import { createRouter, createWebHistory } from "vue-router";
 import Login from "@/pages/Login.vue";
 import Todo from "@/pages/Todo.vue";
 import NotFound from "@/pages/NotFound.vue";
+import store from "@/store";
 // const Todo = defineAsyncComponent(() => import("@/pages/Todo.vue"));
 const router = createRouter({
   history: createWebHistory(),
-
   routes: [
     {
       path: "/login",
       component: Login,
-      name: "main",
+      name: "Login",
       alias: "/",
     },
     {
       path: "/todo",
-      name: "todo",
+      name: "Todo",
       component: Todo,
     },
     {
@@ -26,4 +26,10 @@ const router = createRouter({
     },
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.name !== "Login" && !store.state.isAuth) next({ name: "Login" });
+  else next();
+});
+
 export default router;

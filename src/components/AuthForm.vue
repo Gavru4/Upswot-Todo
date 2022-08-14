@@ -51,6 +51,7 @@ export default {
      }),
 
      async onUserLogin() {
+        console.log('this.name :>> ', this.name);
      if(this.password === "" && this.name === ""){
             this.validationPasswordError = true
             this.validationNameError = true
@@ -64,11 +65,11 @@ export default {
          else {
              await this.loginUser({ login: this.name, password: this.password })
              this.name = "",
-                this.password = ""
-
-             this.userLoginInfo ? this.$router.push('/todo') : this.$router.push('/login')
+             this.password = ""
+        //  this.$router.push('/todo')
          }
      }
+
             
     },
 }
