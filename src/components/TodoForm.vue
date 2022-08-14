@@ -63,19 +63,15 @@ data: () => ({
 
 
 
+@import "@/assets/variables.scss";
 
 
-
-
-
-
-
-$btn-hover-bgc: #FFFFFF;
-$btn-hover-border-color: #0076C0;
-$main-text0color: #333333;
-$button-bgc: #45b7ff;
- $todo-gradient-top-bgc: #00AFED;
- $todo-gradient-bottom-bgc: #00569A;
+// $btn-hover-bgc: #FFFFFF;
+// $btn-hover-border-color: #0076C0;
+// $main-text0color: #333333;
+// $button-bgc: #45b7ff;
+// $todo-gradient-top-bgc: #00AFED;
+// $todo-gradient-bottom-bgc: #00569A;
 
 .todo-form { 
     display: flex;
@@ -93,7 +89,7 @@ $button-bgc: #45b7ff;
         width: 700px;
         padding: 20px;
         margin: 20px auto 50px;
-        background-color: #00A9E7;
+        background-color: $todo-form-bgc;
         
         border-radius: 5px;
 }
@@ -115,7 +111,7 @@ $button-bgc: #45b7ff;
     font-size: 20px;
     line-height: 20px;
 
-    color: $main-text0color;
+    color: $main-text-color;
       
     @media screen and (min-width: 1280px) {
     height: 40px;
@@ -141,8 +137,8 @@ $button-bgc: #45b7ff;
     border: none;
   
     border-radius: 10px;
-    background-color:$button-bgc ;
-    color: $main-text0color;
+    background-color:$todo-form-button-bgc;
+    color: $main-text-color;
    
     @media screen and (min-width: 1280px) {
     padding: 10px;
@@ -155,9 +151,9 @@ $button-bgc: #45b7ff;
 }
 
  &:hover {
-    color: $btn-hover-border-color;
-    background: $btn-hover-bgc;
-    border-color: $btn-hover-border-color;
+    color: $todo-form-btn-hover-border-color;
+    background: $todo-form-btn-hover-bgc;
+    border-color: $todo-form-btn-hover-border-color;
     cursor: pointer;
     
 

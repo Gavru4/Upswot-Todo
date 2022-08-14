@@ -83,7 +83,10 @@ export default {
 
 <style lang="scss" scoped>
 
-$main-text-color: #333333;
+
+@import "@/assets/variables.scss";
+
+// $main-text-color: #333333;
 
 .about-us__description {
     font-family: 'Roboto';

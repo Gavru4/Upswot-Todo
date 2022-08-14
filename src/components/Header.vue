@@ -13,10 +13,11 @@
 
 <style lang="scss" scoped>
 
+@import "@/assets/variables.scss";
 
- $header-top-bgc:  #333333;
- $header-gradient-top-bgc:  #00A9E7;
- $header-gradient-bottom-bgc:  #005B9F;
+//  $header-top-bgc:  #333333;
+//  $header-gradient-top-bgc:  #00A9E7;
+//  $header-gradient-bottom-bgc:  #005B9F;
  
 
 .header__top-wrapper {

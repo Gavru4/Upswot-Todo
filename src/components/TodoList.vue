@@ -37,6 +37,7 @@ import { mapGetters, mapMutations } from "vuex";
 import TodoForm from "@/components/TodoForm.vue";
 import UpdateTodoForm from "./UpdateTodoForm.vue";
 
+
 export default {
   computed: mapGetters({
     todoList: "todo/todoList",
@@ -68,22 +69,16 @@ export default {
 
 
 
+@import "@/assets/variables.scss";
 
 
-
-
-
-
-
-
-
-$btn-update-hover-color: #FFFFFF;
-$btn-update-hover-bgc: #0565a0;
-$btn-delete-hover-color: #FFFFFF;
-$btn-delete-hover-bgc: rgb(184, 3, 3);
-$update-btn-bgc: #00a9e7;
-$update-btn-color:#fff;
-$del-btn-bgc: red;
+// $btn-update-hover-color: #FFFFFF;
+// $btn-update-hover-bgc: #0565a0;
+// $btn-delete-hover-color: #FFFFFF;
+// $btn-delete-hover-bgc: rgb(184, 3, 3);
+// $update-btn-bgc: #00a9e7;
+// $update-btn-color:#fff;
+// $del-btn-bgc: red;
 
 
 //list animation
@@ -125,7 +120,7 @@ $main-text0color: #333333;
   line-height: 29px;
   text-align: center;
 
-  color: #333333;
+  color: $main-text-color;
 } 
 
  .todo-item {
@@ -167,7 +162,7 @@ $main-text0color: #333333;
 
 
   border: none;
-  background:$update-btn-bgc;
+  background:$update-btn-form-bgc;
   color:$update-btn-color;
   
     @media screen and (min-width: 768px) {

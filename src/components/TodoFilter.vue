@@ -28,7 +28,9 @@ export default {
 
 <style lang="scss" scoped>
 
-$filter-bgc: #00A9E7;
+@import "@/assets/variables.scss";
+
+// $filter-bgc: #00A9E7;
 
 .todo-filter__input {
     display: block;

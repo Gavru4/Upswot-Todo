@@ -9,8 +9,11 @@
 <style lang="scss" scoped>
 
 
+@import "@/assets/variables.scss";
 
-$main-header-color: #FFFFFF;
+
+
+// $main-header-color: #FFFFFF;
 
 
 .main {

@@ -25,12 +25,13 @@
 
 <style  lang="scss" scoped>
 
+@import "@/assets/variables.scss";
 
 
-$copyright-color: #FFFFFF;
- $barrier-border-color: #FFFFFF;
-$nav-link-color: #FFFFFF;
-$footer-bgc:  #333333;
+// $copyright-color: #FFFFFF;
+//  $barrier-border-color: #FFFFFF;
+// $nav-link-color: #FFFFFF;
+// $footer-bgc:  #333333;
 .footer {
     padding: 30px 0 35px 0;
     background: $footer-bgc;

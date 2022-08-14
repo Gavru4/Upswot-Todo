@@ -1,8 +1,13 @@
 <template>
 
     <form class="update-form" @submit.prevent="update">
-        <input v-model.trim="searchField" ref="focusTextarea" class="update-form__input" type="text"
-            placeholder="Enter your todo">
+        <!-- <my-input inputValue={{searchField}}  ref="focusTextarea"
+            class="update-form__input" /> -->
+        <input v-model.trim="searchField" 
+        ref="focusTextarea" 
+        class="update-form__input"
+        type="text" placeholder="Enter your todo" >
+        
         <my-button class="btn__update-todo" text="Update todo" />
         <!-- <button class="btn__update-todo">Update Todo</button> -->
 
@@ -55,7 +60,12 @@ export default {
 <style lang="scss"  scoped>
 
 
-$main-text0color: #333333;
+
+
+@import "@/assets/variables.scss";
+
+
+// $main-text0color: #333333;
 
 
 .update-form {
@@ -63,7 +73,7 @@ $main-text0color: #333333;
     flex-direction: column;
     padding: 20px;
     margin: 20px auto 50px;
-    background-color: #00A9E7;
+    background-color: $update-btn-form-bgc;
 
 
     border-radius: 5px;
@@ -77,7 +87,7 @@ $main-text0color: #333333;
     font-size: 25px;
     line-height: 29px;
 
-    color: #333333;
+    color: $main-text-color;
 }
 
 .btn__update-todo {
@@ -92,7 +102,7 @@ $main-text0color: #333333;
 
     border: none;
 
-    color: #333333;
-    ;
+    color: $main-text-color;
+    
 }
 </style>

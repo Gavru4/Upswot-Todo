@@ -31,16 +31,6 @@ export default {
 
 <style lang="scss" scoped>
 
-
-
-
-
-
-
-
-
-
-
 .modal {
 top: 0;
 bottom: 0;

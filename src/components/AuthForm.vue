@@ -81,35 +81,26 @@ export default {
 
 
 
+@import "@/assets/variables.scss";
 
-
-
-
-
-
-
-
-
-
-
-$main-text-color: #333333;
-$background-color: #FFFFFF;
-$login-btn-color: #FFFFFF;
-$login-btn-hover-bgc: #FFFFFF;
-$login-btn-hover-border-color: #0076C0;
-$register-btn-hover-bgc: #FFFFFF;
-$register-btn-hover-border-color: #0076C0;
-$forgot-btn-bgc: #FFFFFF;
-$login-btn-bgc:  #0076C0;
-$forgot-btn-text-color: #056DAE;
-$forgot-btn-hover-color: #056DAE;
-$register-btn-text-color: #333333;
-$register-btn-bgc: #F6F6F6;
+// $main-text-color: #333333;
+// $background-color: #FFFFFF;
+// $login-btn-color: #FFFFFF;
+// $login-btn-hover-bgc: #FFFFFF;
+// $login-btn-hover-border-color: #0076C0;
+// $register-btn-hover-bgc: #FFFFFF;
+// $register-btn-hover-border-color: #0076C0;
+// $forgot-btn-bgc: #FFFFFF;
+// $login-btn-bgc:  #0076C0;
+// $forgot-btn-text-color: #056DAE;
+// $forgot-btn-hover-color: #056DAE;
+// $register-btn-text-color: #333333;
+// $register-btn-bgc: #F6F6F6;
 
 .auth-form__wrapper {
     margin: 20px auto 0;
 
-    background: $background-color;
+    background: $auth-form-background-color;
     box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
 
         @media screen and (min-width: 768px) {
@@ -177,10 +168,10 @@ $register-btn-bgc: #F6F6F6;
    
     font-size: 16px;
     line-height: 19px;
-    color: #D60000;
+    color: $error-input-border-text;
 }
 .error {
-    border-color: #D60000;
+    border-color:$error-input-border-text;
 }
 
 .btn__login {
