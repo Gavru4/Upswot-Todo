@@ -17,10 +17,10 @@ export default {
   },
   methods: {
     ...mapMutations({
-      filterAndSortedTodo: "todo/filterAndSortedTodo",
+      sortedTodo: "todo/sortedTodo",
     }),
     selectTodo(e) {
-      this.filterAndSortedTodo(e.target.value);
+      this.sortedTodo(e.target.value);
     },
   },
 };

@@ -9,6 +9,16 @@
   </section>
 </template>
 
+<script>
+import Container from "@/assets/Container.vue";
+
+export default {
+  components: {
+    Container,
+  },
+};
+</script>
+
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";
 

@@ -1,13 +1,19 @@
 <template>
   <form class="todo-form" @submit.prevent="addNewTodo">
     <div class="input-wrapper">
-      <input
+      <my-input
+        inputClass="todo-form__input"
+        v-model.trim="searchField"
+        placeholder="Enter your todo"
+        @focus="todoEnterError = false"
+      />
+      <!-- <input
         v-model.trim="searchField"
         @focus="todoEnterError = false"
         class="todo-form__input"
         type="text"
         placeholder="Enter your todo"
-      />
+      /> -->
       <p v-if="todoEnterError" class="error__input-text">
         <img
           class="error-svg"
@@ -90,26 +96,26 @@ export default {
   margin-bottom: 15px;
 }
 
-.todo-form__input {
-  width: 100%;
-  height: 30px;
-  padding: 5px;
-  margin-bottom: 5px;
+// .todo-form__input {
+//   width: 100%;
+//   height: 30px;
+//   padding: 5px;
+//   margin-bottom: 5px;
 
-  font-family: $main-font-family;
-  font-size: 20px;
-  line-height: 20px;
+//   font-family: $main-font-family;
+//   font-size: 20px;
+//   line-height: 20px;
 
-  color: $main-text-color;
+//   color: $main-text-color;
 
-  @media screen and (min-width: 1280px) {
-    height: 40px;
-    padding: 5px;
+//   @media screen and (min-width: 1280px) {
+//     height: 40px;
+//     padding: 5px;
 
-    font-size: 25px;
-    line-height: 29px;
-  }
-}
+//     font-size: 25px;
+//     line-height: 29px;
+//   }
+// }
 
 .btn__add-todo {
   display: block;

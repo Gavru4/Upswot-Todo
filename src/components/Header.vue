@@ -2,12 +2,22 @@
   <section class="header">
     <div class="header__top-wrapper"></div>
     <div class="header__logo-wrapper">
-      <my-container>
+      <Container>
         <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
-      </my-container>
+      </Container>
     </div>
   </section>
 </template>
+
+<script>
+import Container from "@/assets/Container.vue";
+
+export default {
+  components: {
+    Container,
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";

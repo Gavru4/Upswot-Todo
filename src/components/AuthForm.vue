@@ -2,7 +2,15 @@
   <div class="auth-form__wrapper">
     <form class="auth-form" @submit.prevent="onUserLogin">
       <div class="input__wrapper">
-        <label class="auth-form__label" for="name">Name</label>
+        <my-input
+          v-model.trim="name"
+          inputClass="auth-form__input"
+          labelClass="auth-form__label"
+          @focus="validationNameError = false"
+          v-bind:class="{ error: validationNameError }"
+          >Name</my-input
+        >
+        <!-- <label class="auth-form__label" for="name">Name</label>
         <input
           v-model.trim="name"
           class="auth-form__input"
@@ -11,7 +19,7 @@
           id="name"
           type="text"
           name="name"
-        />
+        /> -->
         <p v-if="validationNameError" class="error__input-text">
           <img
             class="error-svg"
@@ -24,7 +32,18 @@
         </p>
       </div>
       <div class="input__wrapper">
-        <label class="auth-form__label" for="password">Password</label>
+        <my-input
+          v-model.trim="password"
+          inputClass="auth-form__input"
+          labelClass="auth-form__label"
+          v-bind:class="{ error: validationPasswordError }"
+          @focus="validationPasswordError = false"
+          id="password"
+          type="password"
+          name="password"
+          >Password</my-input
+        >
+        <!-- <label class="auth-form__label" for="password">Password</label>
         <input
           v-model.trim="password"
           class="auth-form__input"
@@ -33,7 +52,7 @@
           id="password"
           type="password"
           name="password"
-        />
+        /> -->
         <p v-if="validationPasswordError" class="error__input-text">
           <img
             class="error-svg"
@@ -73,7 +92,6 @@ export default {
       loginUser: "loginUser",
     }),
     async onUserLogin() {
-      console.log("this.name :>> ", this.name);
       if (this.password === "" && this.name === "") {
         this.validationPasswordError = true;
         this.validationNameError = true;
@@ -84,7 +102,7 @@ export default {
       } else {
         await this.loginUser({ login: this.name, password: this.password });
         (this.name = ""), (this.password = "");
-        //  this.$router.push('/todo')
+        this.$router.push("/todo");
       }
     },
   },
@@ -120,43 +138,43 @@ export default {
   padding: 40px 30px 25px;
 }
 
-.auth-form__label {
-  margin-bottom: 7px;
+// .auth-form__label {
+//   margin-bottom: 7px;
 
-  font-family: $main-font-family;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 10px;
+//   font-family: $main-font-family;
+//   font-weight: 300;
+//   font-size: 15px;
+//   line-height: 10px;
 
-  color: $main-text-color;
+//   color: $main-text-color;
 
-  @media screen and (min-width: 768px) {
-    font-size: 18px;
-    line-height: 21px;
-  }
-}
+//   @media screen and (min-width: 768px) {
+//     font-size: 18px;
+//     line-height: 21px;
+//   }
+// }
 .input__wrapper {
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
 }
-.auth-form__input {
-  height: 53px;
-  margin-bottom: 5px;
-  padding: 15px;
+// .auth-form__input {
+//   height: 53px;
+//   margin-bottom: 5px;
+//   padding: 15px;
 
-  font-family: $main-font-family;
-  font-size: 18px;
-  line-height: 21px;
+//   font-family: $main-font-family;
+//   font-size: 18px;
+//   line-height: 21px;
 
-  color: $main-text-color;
-  background: $auth-form-background-color;
-  border: 1px solid #9a9a9a;
-}
-.auth-form__input:hover,
-.auth-form__input:focus {
-  border-color: #101010;
-}
+//   color: $main-text-color;
+//   background: $auth-form-background-color;
+//   border: 1px solid #9a9a9a;
+// }
+// .auth-form__input:hover,
+// .auth-form__input:focus {
+//   border-color: #101010;
+// }
 .error__input-text {
   font-family: $main-font-family;
   font-size: 16px;

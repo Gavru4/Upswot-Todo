@@ -5,6 +5,16 @@
   <ul v-else class="todo-list">
     <transition-group name="todo-list">
       <li class="todo-item" v-for="todo in todoList" :key="todo.id">
+        <!-- <my-input
+          labelClass="checkbox-wrapper"
+          inputClass="todo-checkbox"
+          type="checkbox"
+          v-bind:labelClass="{ done: todo.completed }"
+          v-bind:checked="todo.completed"
+          v-on:change="toggleCheckBox(todo.id)"
+        >
+          <p class="checkbox-text">{{ todo.title }}</p></my-input
+        > -->
         <label class="checkbox-wrapper" v-bind:class="{ done: todo.completed }">
           <input
             class="todo-checkbox"
@@ -193,6 +203,7 @@ export default {
   height: 20px;
   margin-right: 15px;
 }
+
 .btn-wrapper {
   margin: 15px auto 0;
 

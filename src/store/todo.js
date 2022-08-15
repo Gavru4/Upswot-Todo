@@ -1,6 +1,7 @@
 export const todo = {
   state: () => ({
     searchQuery: JSON.parse(localStorage.getItem("searchQuery")) || "all",
+    filterValue: "",
     showModal: false,
     updatedTodo: null,
     todoList: JSON.parse(localStorage.getItem("todo")) || [],
@@ -12,18 +13,18 @@ export const todo = {
     isModalOpen(state) {
       return state.showModal;
     },
-
     todoList(state) {
+      if (state.filterValue !== "") {
+        return state.todoList.filter((post) =>
+          post.title.toLowerCase().includes(state.filterValue.toLowerCase())
+        );
+      }
       if (state.searchQuery === "all") {
         return state.todoList;
       } else if (state.searchQuery === "completed") {
         return state.todoList.filter((el) => el.completed);
       } else if (state.searchQuery === "incomplete") {
         return state.todoList.filter((el) => !el.completed);
-      } else {
-        return state.todoList.filter((post) =>
-          post.title.toLowerCase().includes(state.searchQuery.toLowerCase())
-        );
       }
     },
   },
@@ -34,9 +35,12 @@ export const todo = {
       localStorage.setItem("todo", JSON.stringify(state.todoList));
     },
 
-    filterAndSortedTodo(state, value) {
+    sortedTodo(state, value) {
       state.searchQuery = value;
       localStorage.setItem("searchQuery", JSON.stringify(state.searchQuery));
+    },
+    filterTodo(state, value) {
+      state.filterValue = value;
     },
 
     deleteTodoById(state, id) {
