@@ -36,6 +36,8 @@ export default {
 };
 </script>
 
+<!-- Лучше поступить также как я описал в кнопке -->
+
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";
 

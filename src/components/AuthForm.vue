@@ -109,6 +109,33 @@ export default {
 };
 </script>
 
+<!-- Читабельность наше все, не делай так (this.name = ""), (this.password = ""); -->
+<!-- А вообще else if выглядит не очень опрятно, я бы сделал так
+      async onUserLogin() {
+        if (this.password === "" && this.name === "") {
+          this.validationPasswordError = true;
+          this.validationNameError = true;
+          return;
+        }
+
+        if (this.name === "") {
+          this.validationNameError = true;
+          return;
+        }
+
+        if (this.password === "") {
+          this.validationPasswordError = true;
+          return;
+        }
+
+        await this.loginUser({ login: this.name, password: this.password });
+        this.name = "";
+        this.password = "";
+        this.$router.push("/todo");
+    },
+    Но это на любителя, в общем не критично совсем
+ -->
+
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";
 

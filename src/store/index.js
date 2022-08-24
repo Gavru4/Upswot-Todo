@@ -32,3 +32,23 @@ export default createStore({
   },
   namespaced: true,
 });
+
+// Смотри, мутации должны только изменять логику, у них не должно быть дополнительно влияния
+// Идеальная функция мутация выглядит так - state.currState = newState;
+// Для каких либо операций нужно использовать actions, а уже внутри него дергать мутации по необходимости
+
+// Пример из доки:
+// const store = createStore({
+//   state: {
+//     count: 0
+//   },
+//   mutations: {
+//     increment (state) {
+//       state.count++
+//     }
+//   },
+//   actions: {
+//     increment (context) {
+//       context.commit('increment')
+//     }
+//   }
