@@ -32,6 +32,18 @@
 
 </template>
 
+<!-- В шаблоне беспорядок, учись соблюдать единый стиль кода, убери лишние отступы -->
+<!--  
+     <div v-else>
+        <p class="redirect__text">You are not registered, at first register pleas</p>
+        <router-link to="/login" class="redirect__btn">
+            To Register page
+        </router-link>
+    </div>
+
+    Это разве актуально?, вроде ты добавил редирект на уровне роутов
+-->
+
 <script>
 import TodoForm from "@/components/TodoForm.vue";
 import TodoFilter from "@/components/TodoFilter.vue";

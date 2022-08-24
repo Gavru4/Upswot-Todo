@@ -93,6 +93,19 @@
   </section>
 </template>
 
+<!-- 
+  Дублируешь код, это не критично, но я бы вынес в отдельный компонентик, а сами данные оформил бы в массив
+  item = [
+    {
+      title: 'Interactive Reporting',
+      description: 'Lorem Ipsum...'
+    }
+  ]
+
+  По работе с SVG советую ознакомиться
+  https://ru.vuejs.org/v2/cookbook/editable-svg-icons.html
+ -->
+
 <script>
 import AuthForm from "@/components/AuthForm.vue";
 export default {

@@ -11,7 +11,7 @@ export const todo = {
       return state.todoList;
     },
     isModalOpen(state) {
-      return state.showModal;
+      return state.showModal; // как это относится к сущности todo?
     },
     todoList(state) {
       if (state.filterValue !== "") {
@@ -80,3 +80,34 @@ export const todo = {
   },
   namespaced: true,
 };
+
+// Опять таки, неправильно используешь мутации
+// Пример от меня:
+
+// export const todo = {
+//   state: () => ({
+//     todoList: JSON.parse(localStorage.getItem("todo")) || [],
+//   }),
+//   getters: { // => геттеры используем для получения новых state на базе уже существующих, тоже что и computed во vue
+//     completedTodo(state) {
+//       return state.todoList.filter(todo => todo.completed);
+//     },
+//   },
+//   mutations: { // => только логика мутации, никаких доп эффектов, 
+//     setTodo(state, newTodoList) {
+//       state.todoList = newTodoList
+//     },
+//   },
+//   actions: { // => тут все действия, запросы и т.д
+//     addTodo({ commit, state }, newTodo) {
+//       const updatedTodoList = [...state.todoList, newTodo]
+//       commit('setTodo', updatedTodoList)
+//       localStorage.setItem("todo", JSON.stringify(updatedTodoList));
+//     },
+//     removeTodoById({ commit, state }, id) {
+//        const updatedTodoList = state.todoList.filter((el) => el.id !== id)
+//        commit('setTodo', updatedTodoList)
+//     }
+//   },
+//   namespaced: true,
+// };

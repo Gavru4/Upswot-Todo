@@ -6,6 +6,8 @@
   </select>
 </template>
 
+<!-- По сути select  - это тоже базовый компонент, но в твоем случае он используется только раз, поэтому все окей -->
+
 <script>
 import { mapMutations, mapState } from "vuex";
 
