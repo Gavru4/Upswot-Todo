@@ -17,7 +17,7 @@
       <p v-if="todoEnterError" class="error__input-text">
         <img
           class="error-svg"
-          src="../../public/images/Vector.svg"
+          :src="require('@/assets/images/Vector.svg')"
           alt="error logo"
           height="11"
           width="11"

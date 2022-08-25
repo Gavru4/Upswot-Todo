@@ -13,10 +13,10 @@ import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
-    Footer,
     Header,
     MainSection,
     AboutUsSection,
+    Footer,
   },
 };
 </script>

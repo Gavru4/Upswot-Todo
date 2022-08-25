@@ -1,6 +1,6 @@
 <template>
   <section class="about-us">
-    <my-container>
+    <div class="container">
       <div class="wrapper">
         <p class="about-us__description">
           Business Analytics — a new, convenient tool for managing and
@@ -10,78 +10,21 @@
         </p>
 
         <ul class="benefits">
-          <li class="benefits__item">
-            <svg
+          <li class="benefits__item" v-for="item in customBenefitsItem">
+            <my-icon
               class="benefits__icon"
               width="23"
               height="17"
-              viewBox="0 0 23 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M19.9584 0L23 2.99416L8.77173 17L0 8.36558L3.04162 5.37142L8.77173 11.0118L19.9584 0Z"
-                fill="#0076C0"
-              />
-            </svg>
+              iconColor="#0076C0"
+              ><TickMark />
+            </my-icon>
             <div class="benefits__wrapper">
               <h2 class="benefits__heading">
-                <strong>Interactive Reporting</strong>
+                <strong>{{ item.title }}</strong>
               </h2>
 
               <p class="benefits__description">
-                In just a few clicks, you can connect your data from 1C, CRM
-                (Bitrix24, AmoCRM, ZohoCRM), E-commerce (PROM.UA, Rozetka,
-                ebay), Logistic (Nova Poshta), Google Analytics and many more
-                systems that reflect different aspects of business activities.
-              </p>
-            </div>
-          </li>
-          <li class="benefits__item">
-            <svg
-              class="benefits__icon"
-              width="23"
-              height="17"
-              viewBox="0 0 23 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M19.9584 0L23 2.99416L8.77173 17L0 8.36558L3.04162 5.37142L8.77173 11.0118L19.9584 0Z"
-                fill="#0076C0"
-              />
-            </svg>
-            <div class="benefits__wrapper">
-              <h2 class="benefits__heading">
-                <strong>Automated data updates</strong>
-              </h2>
-
-              <p class="benefits__description">
-                The application automatically updates and structures the data in
-                just 60 seconds, saving you time and money.
-              </p>
-            </div>
-          </li>
-          <li class="benefits__item">
-            <svg
-              class="benefits__icon"
-              width="23"
-              height="17"
-              viewBox="0 0 23 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M19.9584 0L23 2.99416L8.77173 17L0 8.36558L3.04162 5.37142L8.77173 11.0118L19.9584 0Z"
-                fill="#0076C0"
-              />
-            </svg>
-            <div class="benefits__wrapper">
-              <h2 class="benefits__heading"><strong>Data Security</strong></h2>
-
-              <p class="benefits__description">
-                The Bank guarantees the safety of your personal data, ensuring
-                their integrity and confidentiality.
+                {{ item.description }}
               </p>
             </div>
           </li>
@@ -89,27 +32,25 @@
 
         <AuthForm />
       </div>
-    </my-container>
+    </div>
   </section>
 </template>
 
-<!-- 
-  Дублируешь код, это не критично, но я бы вынес в отдельный компонентик, а сами данные оформил бы в массив
-  item = [
-    {
-      title: 'Interactive Reporting',
-      description: 'Lorem Ipsum...'
-    }
-  ]
-
-  По работе с SVG советую ознакомиться
-  https://ru.vuejs.org/v2/cookbook/editable-svg-icons.html
- -->
-
 <script>
 import AuthForm from "@/components/AuthForm.vue";
+import benefitsItem from "@/components/BenefitsItem";
+import TickMark from "@/components/icons/TickMark.vue";
+
 export default {
-  components: { AuthForm, AuthForm },
+  data() {
+    return {
+      customBenefitsItem: benefitsItem,
+    };
+  },
+  components: {
+    AuthForm,
+    TickMark,
+  },
 };
 </script>
 

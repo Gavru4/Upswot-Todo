@@ -1,13 +1,12 @@
 <template>
   <section class="footer">
-    <my-container>
+    <div class="container">
       <div class="footer-nav__wrapper">
         <img
           class="footer-logo"
-          src="../../public/images/logo.png"
+          :src="require('@/assets/images/logo.png')"
           alt="my-logo"
         />
-
         <nav class="footer-nav">
           <a class="footer-nav__link" href="">Terms & Conditions</a>
           <a class="footer-nav__link" href="">Privacy</a>
@@ -17,12 +16,12 @@
           <a class="footer-nav__link" href="">Sitemap</a>
         </nav>
       </div>
-      <my-barrier class="barrier__my-style"></my-barrier>
+      <span class="barrier"></span>
       <p class="copyright">
         Copyright © 2020 Citigroup Inc. Citibank, N.A. Member FDIC. Equal
         Opportunity Lender.
       </p>
-    </my-container>
+    </div>
   </section>
 </template>
 
@@ -93,7 +92,9 @@
   margin-right: 0;
 }
 
-.barrier__my-style {
+.barrier {
+  display: inline-block;
+  height: 0px;
   width: 100%;
   margin-bottom: 15px;
 

@@ -23,7 +23,7 @@
         <p v-if="validationNameError" class="error__input-text">
           <img
             class="error-svg"
-            src="../../public/images/Vector.svg"
+            :src="require('@/assets/images/Vector.svg')"
             alt="error logo"
             height="11"
             width="11"
@@ -56,7 +56,7 @@
         <p v-if="validationPasswordError" class="error__input-text">
           <img
             class="error-svg"
-            src="../../public/images/Vector.svg"
+            :src="require('@/assets/images/Vector.svg')"
             alt="error logo"
             height="11"
             width="11"
@@ -95,46 +95,27 @@ export default {
       if (this.password === "" && this.name === "") {
         this.validationPasswordError = true;
         this.validationNameError = true;
-      } else if (this.name === "") {
-        this.validationNameError = true;
-      } else if (this.password === "") {
-        this.validationPasswordError = true;
-      } else {
-        await this.loginUser({ login: this.name, password: this.password });
-        (this.name = ""), (this.password = "");
-        this.$router.push("/todo");
+        return;
       }
+
+      if (this.name === "") {
+        this.validationNameError = true;
+        return;
+      }
+
+      if (this.password === "") {
+        this.validationPasswordError = true;
+        return;
+      }
+
+      await this.loginUser({ login: this.name, password: this.password });
+      this.name = "";
+      this.password = "";
+      this.$router.push("/todo");
     },
   },
 };
 </script>
-
-<!-- Читабельность наше все, не делай так (this.name = ""), (this.password = ""); -->
-<!-- А вообще else if выглядит не очень опрятно, я бы сделал так
-      async onUserLogin() {
-        if (this.password === "" && this.name === "") {
-          this.validationPasswordError = true;
-          this.validationNameError = true;
-          return;
-        }
-
-        if (this.name === "") {
-          this.validationNameError = true;
-          return;
-        }
-
-        if (this.password === "") {
-          this.validationPasswordError = true;
-          return;
-        }
-
-        await this.loginUser({ login: this.name, password: this.password });
-        this.name = "";
-        this.password = "";
-        this.$router.push("/todo");
-    },
-    Но это на любителя, в общем не критично совсем
- -->
 
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";

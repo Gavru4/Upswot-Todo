@@ -1,29 +1,19 @@
 <template>
   <section class="main">
-    <my-container>
+    <div class="container">
       <h1 class="heading">
         Welcome to <br />
         Business Analytics Online
       </h1>
-    </my-container>
+    </div>
   </section>
 </template>
-
-<script>
-import Container from "@/assets/Container.vue";
-
-export default {
-  components: {
-    Container,
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";
 
 .main {
-  background-image: url("../../public/images/Фон-1x.jpg");
+  background-image: url("@/assets/images/Фон-1x.jpg");
   background-position: center;
   background-size: cover;
 }

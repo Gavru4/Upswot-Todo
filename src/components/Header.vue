@@ -2,26 +2,16 @@
   <section class="header">
     <div class="header__top-wrapper"></div>
     <div class="header__logo-wrapper">
-      <Container>
-        <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
-      </Container>
+      <div class="container">
+        <img
+          class="logo"
+          :src="require('@/assets/images/logo.png')"
+          alt="my-logo"
+        />
+      </div>
     </div>
   </section>
 </template>
-
-<!-- 
-  <img class="logo" src="../../public/images/logo.png" alt="my-logo" />
-  если хочешь заюзать картинку с папки public, то существует шорткат / - ставишь слеш и считай ты уже в public
-  в твоем случае я бы сделал
-  <img class="logo" src="/images/logo.png" alt="my-logo" />
-
-  еще один кейс
-  обычно принято картинки хранить в папочке src/assets/
-  и во vue есть очень удобные шорткаты например "@/assets/Container.vue" где @ - ссылается всегда на src
-  и по этому очень удобно делать вот такую штуку
-  <img class="logo" :src="require('@/assets/images/logo.png')" alt="my-logo" />
-  и тогда, куда бы ты этот файл не перемещал по своему проекту, ссылка всегда будет указывать на картинку, очень удобно
- -->
 
 <script>
 import Container from "@/assets/Container.vue";
