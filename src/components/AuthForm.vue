@@ -64,10 +64,10 @@
           Enter password
         </p>
       </div>
-      <my-button class="btn__login" text="LOGIN" />
-      <my-button class="btn__forgot-password" text="Forgot Password" />
+      <my-button type="btn__login" text="LOGIN" />
+      <my-button type="btn__forgot-password" text="Forgot Password" />
     </form>
-    <my-button class="btn__register" text="Register now" />
+    <my-button type="btn__register" fullWidth text="Register now" />
   </div>
 </template>
 
@@ -191,82 +191,5 @@ export default {
 }
 .error {
   border-color: $error-input-border-text;
-}
-
-.btn__login {
-  padding: 5px;
-  box-sizing: border-box;
-
-  font-family: $main-font-family;
-  font-size: 20px;
-  line-height: 25px;
-
-  color: $login-btn-color;
-  background: $login-btn-bgc;
-
-  @media screen and (min-width: 768px) {
-    padding: 12px 10px 12px;
-
-    font-size: 25px;
-    line-height: 29px;
-  }
-  &:hover {
-    color: $login-btn-hover-border-color;
-    background: $login-btn-hover-bgc;
-    border: 2px solid $login-btn-hover-border-color;
-    cursor: pointer;
-  }
-}
-
-.btn__forgot-password {
-  margin-top: 15px;
-  border: none;
-
-  font-family: $main-font-family;
-  font-size: 20px;
-  line-height: 23px;
-
-  background-color: $forgot-btn-bgc;
-  color: $forgot-btn-text-color;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 20px;
-  }
-
-  &:hover {
-    color: $forgot-btn-hover-color;
-    cursor: pointer;
-  }
-}
-
-.btn__register {
-  width: 100%;
-  height: 50px;
-  padding: 10px 0;
-  border: none;
-
-  font-family: "Roboto";
-  font-size: 20px;
-  line-height: 25px;
-
-  color: $register-btn-text-color;
-  background: $register-btn-bgc;
-
-  @media screen and (min-width: 480px) {
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 100%;
-    height: 63px;
-    padding: 17px 0;
-
-    font-size: 25px;
-  }
-  &:hover {
-    color: $register-btn-hover-border-color;
-    background: $register-btn-hover-bgc;
-    border: 2px solid $register-btn-hover-border-color;
-    cursor: pointer;
-  }
 }
 </style>

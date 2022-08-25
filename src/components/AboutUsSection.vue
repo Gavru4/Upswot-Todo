@@ -8,7 +8,6 @@
           own finances and cash flows, visualize your reporting, business
           processes, KPI's
         </p>
-
         <ul class="benefits">
           <li class="benefits__item" v-for="item in customBenefitsItem">
             <my-icon
@@ -29,7 +28,6 @@
             </div>
           </li>
         </ul>
-
         <AuthForm />
       </div>
     </div>

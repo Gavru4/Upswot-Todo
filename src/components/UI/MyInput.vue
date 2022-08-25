@@ -2,12 +2,13 @@
   <label for="input" :class="labelClass"><slot></slot></label>
   <!-- <label v-if="label" :for="for" :class="labelClass">{{ label }}</label> -->
   <input
+    :class="inputClass"
+    v-bind:class="{ error: validationPasswordError }"
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
     v-bind="$attrs"
     :type="type"
     name="input"
-    :class="inputClass"
   />
 </template>
 
@@ -31,6 +32,14 @@ export default {
     labelClass: {
       type: String,
       default: "",
+    },
+    validationNameError: {
+      type: Boolean,
+      default: false,
+    },
+    validationPasswordError: {
+      type: Boolean,
+      default: false,
     },
   },
 };
@@ -126,5 +135,8 @@ export default {
     font-size: 25px;
     line-height: 29px;
   }
+}
+.error {
+  border-color: $error-input-border-text;
 }
 </style>

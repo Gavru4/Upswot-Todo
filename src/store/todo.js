@@ -93,7 +93,7 @@ export const todo = {
 //       return state.todoList.filter(todo => todo.completed);
 //     },
 //   },
-//   mutations: { // => только логика мутации, никаких доп эффектов, 
+//   mutations: { // => только логика мутации, никаких доп эффектов,
 //     setTodo(state, newTodoList) {
 //       state.todoList = newTodoList
 //     },
